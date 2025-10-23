@@ -1,20 +1,20 @@
 document.getElementById("registrationForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // ป้องกันไม่ให้ form ส่งก่อนตรวจสอบ
+  event.preventDefault();
 
-  // ล้างข้อความ error เดิมทั้งหมดก่อน
+  // ล้างข้อความ error และ success
   document.querySelectorAll(".error-message").forEach(e => e.textContent = "");
   document.getElementById("success").textContent = "";
 
   let valid = true;
 
-  // ดึงค่าช่อง input
   const fullname = document.getElementById("fullname").value.trim();
   const email = document.getElementById("email").value.trim();
   const age = document.getElementById("age").value.trim();
+  const phoneInput = document.getElementById('phone');
+  const phone = phoneInput.value.trim();
   const gender = document.querySelector('input[name="gender"]:checked');
   const interests = document.querySelectorAll('input[name="interests"]:checked');
 
-  // ตรวจแต่ละช่อง
   if (fullname === "") {
     document.getElementById("fullname-error").textContent = "⚠️ Please enter your full name.";
     valid = false;
@@ -30,6 +30,14 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     valid = false;
   }
 
+  if (phone === "") {
+    document.getElementById("phone-error").textContent = "⚠️ Please enter your phone number.";
+    valid = false;
+  } else if (!/^\d{10}$/.test(phone)) {
+    document.getElementById("phone-error").textContent = "⚠️ Phone number must be 10 digits.";
+    valid = false;
+  }
+
   if (!gender) {
     document.getElementById("gender-error").textContent = "⚠️ Please select your gender.";
     valid = false;
@@ -40,9 +48,8 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     valid = false;
   }
 
-  // ถ้าผ่านหมดทุกช่อง
   if (valid) {
     document.getElementById("success").textContent = "✅ Form submitted successfully!";
-    this.reset(); // เคลียร์ค่าทั้งหมดในฟอร์ม
+    this.reset();
   }
 });
