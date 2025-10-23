@@ -6,11 +6,13 @@
         display: inline-block;
         margin-right: 1px;
     }
+    /*css error massage*/
     .error-message { 
         color: red; 
         font-size: 14px; 
         margin-top: 2px; 
         margin-bottom: 10px; }
+     /*css sucess massage*/
     .success-message { 
         color: green; 
         font-weight: bold; 
