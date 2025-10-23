@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registration <form action=""></form></title>
+    <link rel="stylesheet" href="css/styleRegistration.css">
 </head>
 <body>
-    
+    <script src="JS/registration.js"></script>
+        <form action="/submit" method="POST">
+    <h3>Registration</h3>
+    <fieldset>
+    <legend>Personal Information</legend>
+    <label>Full Name:</label><br>
+        <input type="text" name="fullname" required><br><br>
+    <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+    <label>Age:</label><br>
+        <input type="number" name="age" min="1" max="100" required><br><br>
+    <label>Gender:</label><br>
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female">Female
+        <input type="radio" name="gender" value="other">Other<br>
+    <label>Booth Interests:</label><br>
+        <input type="checkbox" name="interests" value="boothone"> Booth 1
+        <input type="checkbox" name="interests" value="boothtwo"> Booth 2
+        <input type="checkbox" name="interests" value="booththree">Booth 3
+        <input type="checkbox" name="interests" value="boothfour">Booth 4<br>
+    <input type="submit" value="Submit">
+</fieldset>
 </body>
 </html>
