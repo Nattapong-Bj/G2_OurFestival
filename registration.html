@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration <form action=""></form></title>
-    <link rel="stylesheet" href="css/styleRegistration.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  <link rel="stylesheet" href="css/styleRegistration.css">
 </head>
 <body>
-    <script src="JS/registration.js"></script>
-        <form action="/submit" method="POST">
+
+  <form id="registrationForm" method="POST">
     <h3>Registration</h3>
     <fieldset>
-    <legend>Personal Information</legend>
-    <label>Full Name:</label><br>
-        <input type="text" name="fullname" required><br><br>
-    <label>Email:</label><br>
-        <input type="email" name="email" required><br><br>
-    <label>Age:</label><br>
-        <input type="number" name="age" min="1" max="100" required><br><br>
-    <label>Gender:</label><br>
-        <input type="radio" name="gender" value="male"> Male
-        <input type="radio" name="gender" value="female">Female
-        <input type="radio" name="gender" value="other">Other<br>
-    <label>Booth Interests:</label><br>
-        <input type="checkbox" name="interests" value="boothone"> Booth 1
-        <input type="checkbox" name="interests" value="boothtwo"> Booth 2
-        <input type="checkbox" name="interests" value="booththree">Booth 3
-        <input type="checkbox" name="interests" value="boothfour">Booth 4<br>
-    <input type="submit" value="Submit">
-</fieldset>
+      <legend>Personal Information</legend>
+
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname">
+      <div id="fullname-error" class="error-message"></div>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+      <div id="email-error" class="error-message"></div>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" min="1" max="100">
+      <div id="age-error" class="error-message"></div>
+
+      <label>Gender:</label>
+      <input type="radio" name="gender" value="male"> Male
+      <input type="radio" name="gender" value="female"> Female
+      <input type="radio" name="gender" value="other"> Other
+      <div id="gender-error" class="error-message"></div>
+
+      <label>Booth Interests:</label>
+      <input type="checkbox" name="interests" value="booth1"> Booth 1
+      <input type="checkbox" name="interests" value="booth2"> Booth 2
+      <input type="checkbox" name="interests" value="booth3"> Booth 3
+      <input type="checkbox" name="interests" value="booth4"> Booth 4
+      <div id="interests-error" class="error-message"></div>
+
+      <input type="submit" value="Submit">
+      <div id="success" class="success-message"></div>
+    </fieldset>
+  </form>
+
+  <script src="JS/registration.js"></script>
 </body>
 </html>
