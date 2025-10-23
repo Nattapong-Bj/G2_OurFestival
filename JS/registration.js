@@ -14,6 +14,8 @@ document.getElementById("registrationForm").addEventListener("submit", function(
   const phone = phoneInput.value.trim();
   const gender = document.querySelector('input[name="gender"]:checked');
   const interests = document.querySelectorAll('input[name="interests"]:checked');
+  const participationDate = document.getElementById("participation-date").value.trim();
+
 
   if (fullname === "") {
     document.getElementById("fullname-error").textContent = "⚠️ Please enter your full name.";
@@ -47,6 +49,19 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     document.getElementById("interests-error").textContent = "⚠️ Please select at least one booth.";
     valid = false;
   }
+  if (participationDate === "") {
+    document.getElementById("date-error").textContent = "⚠️ Please select a participation date.";
+  valid = false;
+  }else {
+    const selectedDate = new Date(participationDate);
+    const today = new Date();
+    today.setHours(0,0,0,0); 
+        if (selectedDate < today) {
+            document.getElementById("date-error").textContent = "⚠️ You cannot select a past date.";
+            valid = false;
+    }
+  }
+
 
   if (valid) {
     document.getElementById("success").textContent = "✅ Form submitted successfully!";
