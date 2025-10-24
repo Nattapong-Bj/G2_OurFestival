@@ -1,0 +1,117 @@
+body {
+  font-family: "Prompt", sans-serif;
+  margin: 0;
+  background-color: #fffdf8;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* =============== STRUCTURE =============== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  text-align: center;
+  color: #000;
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+/* =============== NAVBAR =============== */
+.navbar {
+  background-color: #000;
+  border-radius: 12px;
+  padding: 12px 20px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 24px;
+}
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+.navbar a:hover {
+  color: #ffcc80;
+}
+
+/* =============== CATEGORY =============== */
+.category {
+  margin-bottom: 48px;
+}
+.category h2 {
+  color: #333;
+  margin-bottom: 16px;
+  border-left: 6px solid #000;
+  padding-left: 12px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* =============== BOOTH CARD =============== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.booth-card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.booth-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.booth-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+.booth-content h3 {
+  margin: 8px 0;
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+}
+.booth-content .desc {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+/* =============== BUTTON =============== */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background 0.2s ease;
+}
+.btn:hover {
+  background-color: #222;
+}
