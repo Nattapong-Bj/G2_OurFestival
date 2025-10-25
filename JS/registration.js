@@ -61,6 +61,12 @@ document.getElementById("registrationForm").addEventListener("submit", function(
             valid = false;
     }
   }
+//check  confirm information แล้ว
+const provided = document.getElementById("provided").checked;
+if (!provided) {
+  document.getElementById("provided-error").textContent = "⚠️ You must confirm that the information provided is correct.";
+  valid = false;
+}
 
   // ถ้าฟอร์มถูกต้องทุกช่อง
   if (valid) {
