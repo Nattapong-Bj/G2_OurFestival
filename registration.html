@@ -69,29 +69,45 @@
 
         </div>
 
-        <label>Gender:</label>
-        <input type="radio" name="gender" value="male"> Male
-        <input type="radio" name="gender" value="female"> Female
-        <input type="radio" name="gender" value="other"> Other
-        <div id="gender-error" class="error-message"></div> <!-- แสดง error -->
+        <div class="input-field">
+          <div class="pb-4 font-bold">Gender</div>
+          <div style="display: flex;">
+            <div class="col-3"><input type="radio" name="gender" value="male"> Male</div>
+            <div class="col-3"><input type="radio" name="gender" value="female"> Female</div>
+            <div class="col-6"><input type="radio" name="gender" value="other"> Prefer not to say</div>
+          </div>
+          <div id="gender-error" class="error-message"></div> <!-- แสดง error -->
 
-        <label>Booth Interests:</label>
-        <input type="checkbox" name="interests" value="booth1"> Booth 1
-        <input type="checkbox" name="interests" value="booth2"> Booth 2
-        <input type="checkbox" name="interests" value="booth3"> Booth 3
-        <input type="checkbox" name="interests" value="booth4"> Booth 4
-        <div id="interests-error" class="error-message"></div> <!-- แสดง error -->
 
-        <label for="participation-date">participation date:</label>
-        <input type="date" id="participation-date" name="participation-date" min="<?= date('Y-m-d'); ?>">
-        <div id="date-error" class="error-message"></div> <!-- แสดง error -->
+        </div>
+        <div class="input-field">
+          <div class="pb-4 font-bold">Booth Interests</div>
+          <div style="display: flex;">
+            <div class="col-3"><input type="checkbox" name="interests" value="booth1"> Booth 1</div>
+            <div class="col-3"><input type="checkbox" name="interests" value="booth2"> Booth 2</div>
+            <div class="col-3"><input type="checkbox" name="interests" value="booth3"> Booth 3</div>
+            <div class="col-3"><input type="checkbox" name="interests" value="booth4"> Booth 4</div>
+          </div>
+          <div id="interests-error" class="error-message"></div> <!-- แสดง error -->
+        </div>
 
-        <input type="submit" value="Submit">
+        <div class="input-field date">
+          <div class="pb-4 font-bold"><label for="participation-date">participation date</label></div>
+          <input type="date" id="participation-date" name="participation-date" min="<?= date('Y-m-d'); ?>">
+          <div id="date-error" class="error-message"></div> <!-- แสดง error -->
+        </div>
+        <div class="input-field pt-2">
+          <label><input type="checkbox"> I hereby declare that the information provided above is true and
+            correct.</label>
+        </div>
+
+        <div class="pt-2"><input type="submit" class="btn" value="Submit"></div>
         <div id="success" class="success-message"></div> <!-- แสดงข้อความ success เมื่อส่งฟอร์มสำเร็จ -->
+
       </fieldset>
     </form>
-
-    <script src="JS/registration.js"></script>
+  </div>
+  <script src="JS/registration.js"></script>
 </body>
 
 </html>
