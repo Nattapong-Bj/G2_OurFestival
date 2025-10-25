@@ -1,56 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registration</title>
   <link rel="stylesheet" href="css/styleRegistration.css">
+  <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
+  <div class="wrapper">
+    <form id="registrationForm" method="POST">
+      <h1>Registration</h1>
 
-  <form id="registrationForm" method="POST">
-    <h3>Registration</h3>
-    <fieldset>
-      <legend>Personal Information</legend>
+      <fieldset>
+        <legend>Personal Information</legend>
 
-      <label for="fullname">Full Name:</label>
-      <input type="text" id="fullname" name="fullname">
-      <div id="fullname-error" class="error-message"></div>  <!-- แสดง error -->
+        <div class="field-row">
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email">
-      <div id="email-error" class="error-message"></div>  <!-- แสดง error -->
+          <div class="wrap-part1">
 
-      <label for="age">Age:</label>
-      <input type="number" id="age" name="age" min="1" max="100">   
-      <div id="age-error" class="error-message"></div>   <!-- แสดง error -->
+            <div class=" col-6 checkbox-1">
+              <div class=" col-12 borderwhite">
+                <div class="pb-4"><label for="fullname">Full Name</label></div>
+                <!-- <i class='bxr bxs-user bx-rotate-90 bx-flip-horizontal'></i> -->
+                <div class=" col-12">
+                  <input type="text" placeholder="Please enter your" required>
+                </div>
+                <div id="fullname-error" class="error-message"></div> <!-- แสดง error -->
+              </div>
+            </div>
 
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" maxlength="10">
-      <div id="phone-error" class="error-message"></div>   <!-- แสดง error -->
+            <div class="col-6 checkbox-1">
+              <div class="col-12borderwhite">
+                <div class="pb-4"><label for="email">Email</label></div>
+                <!-- <i class='bxr  bxs-send-alt bx-rotate-90 bx-flip-horizontal'></i> -->
+                <div class=" col-12">
+                  <input type="text" placeholder="Email" id="email" name="email" required>
+                </div>
+                <div id="email-error" class="error-message"></div> <!-- แสดง error -->
+              </div>
+            </div>
 
-      <label>Gender:</label>
-      <input type="radio" name="gender" value="male"> Male
-      <input type="radio" name="gender" value="female"> Female
-      <input type="radio" name="gender" value="other"> Other
-      <div id="gender-error" class="error-message"></div>   <!-- แสดง error -->
+            <div class="col-6 checkbox-1">
+              <div class="col-12 borderwhite">
+                <div class="pb-4"><label for="age">Age</label></div>
+                <!-- <i class='bxr  bxs-user-square bx-rotate-90 bx-flip-horizontal'></i> -->
+                <div class=" col-12">
+                  <input type="number" placeholder="Please enter your" id="age" name="age" min="1" max="100" required>
+                </div>
+                <div id="age-error" class="error-message"></div> <!-- แสดง error -->
+              </div>
+            </div>
 
-      <label>Booth Interests:</label>
-      <input type="checkbox" name="interests" value="booth1"> Booth 1
-      <input type="checkbox" name="interests" value="booth2"> Booth 2
-      <input type="checkbox" name="interests" value="booth3"> Booth 3
-      <input type="checkbox" name="interests" value="booth4"> Booth 4
-      <div id="interests-error" class="error-message"></div>   <!-- แสดง error -->
+            <div class="col-6 checkbox-1">
+              <div class="col-12 borderwhite">
+                <div class="pb-4"><label for="phone">Phone Number</label></div>
+                <!-- <i class='bxr  bxs-phone-outgoing'></i>  -->
+                <div class=" col-12">
+                  <input type="tel" placeholder="Phone Number ..." id="phone" name="phone" maxlength="10" required>
+                </div>
+                <div id="phone-error" class="error-message"></div> <!-- แสดง error -->
+              </div>
+            </div>
 
-      <label for="participation-date">participation date:</label>
-      <input type="date" id="participation-date" name="participation-date" min="<?= date('Y-m-d'); ?>">
-      <div id="date-error" class="error-message"></div>   <!-- แสดง error -->
-      
-      <input type="submit" value="Submit">
-      <div id="success" class="success-message"></div>   <!-- แสดงข้อความ success เมื่อส่งฟอร์มสำเร็จ -->
-    </fieldset>
-  </form>
+          </div>
 
-  <script src="JS/registration.js"></script>
+        </div>
+
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="other"> Other
+        <div id="gender-error" class="error-message"></div> <!-- แสดง error -->
+
+        <label>Booth Interests:</label>
+        <input type="checkbox" name="interests" value="booth1"> Booth 1
+        <input type="checkbox" name="interests" value="booth2"> Booth 2
+        <input type="checkbox" name="interests" value="booth3"> Booth 3
+        <input type="checkbox" name="interests" value="booth4"> Booth 4
+        <div id="interests-error" class="error-message"></div> <!-- แสดง error -->
+
+        <label for="participation-date">participation date:</label>
+        <input type="date" id="participation-date" name="participation-date" min="<?= date('Y-m-d'); ?>">
+        <div id="date-error" class="error-message"></div> <!-- แสดง error -->
+
+        <input type="submit" value="Submit">
+        <div id="success" class="success-message"></div> <!-- แสดงข้อความ success เมื่อส่งฟอร์มสำเร็จ -->
+      </fieldset>
+    </form>
+
+    <script src="JS/registration.js"></script>
 </body>
+
 </html>
