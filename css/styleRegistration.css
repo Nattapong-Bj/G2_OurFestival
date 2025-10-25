@@ -6,7 +6,7 @@ body {
     background-color: white;
     font-size: 16px;
     color: #171718;
-  background: url(festival-bg.png) no-repeat;
+  background: url(/sources/festival-bg.png) no-repeat;
     background-size: cover;
     background-position: center;
 }
