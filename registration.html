@@ -11,7 +11,7 @@
 
 <body>
   <div class="wrapper">
-    <form id="registrationForm" method="POST">
+    <form id="registrationForm" method="POST" novalidate>
       <h1>Registration</h1>
 
       <fieldset>
@@ -26,7 +26,7 @@
                 <div class="pb-4"><label for="fullname">Full Name</label></div>
                 <!-- <i class='bxr bxs-user bx-rotate-90 bx-flip-horizontal'></i> -->
                 <div class=" col-12">
-                  <input type="text" placeholder="Please enter your" required>
+                  <input type="text" placeholder="Please enter your"  id="fullname" name="fullname" required>
                 </div>
                 <div id="fullname-error" class="error-message"></div> <!-- แสดง error -->
               </div>
@@ -97,7 +97,7 @@
           <div id="date-error" class="error-message"></div> <!-- แสดง error -->
         </div>
         <div class="input-field pt-2">
-          <label><input type="checkbox"> I hereby declare that the information provided above is true and
+          <label><input  id="provided" name="provided" type="checkbox"> I here by declare that the information provided above is true and
             correct.</label>
         </div>
 
