@@ -2,78 +2,96 @@
 <html lang="th">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Directory</title>
-    <link rel="stylesheet" href="css/styleDirectory.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Directory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/siteBase.css" />
+  <link rel="stylesheet" href="css/styleDirectory.css" />
+  <meta name="color-scheme" content="dark light">
 </head>
 
 <body>
-    <!-- ส่วนหัวของหน้า -->
-    <section class="container">
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <div class="logo">Festival</div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Homepage</a>
+        <a href="Directory.html" aria-current="page">Directory</a>
+        <a href="register.html">Register</a>
+        <a href="feedback.html">Feedback</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
         <h1>Directory</h1>
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Homepage</a></li>
-                <li><a href="booth.html">Directory</a></li>
-                <li><a href="register.html">Registration</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-            </ul>
-        </nav>
+      </div>
     </section>
 
-    <!-- เนื้อหาหลัก -->
-    <section class="container">
-        <!-- หมวด 1 -->
-        <section class="category" data-category="ชื่อหมวดหมู่">
-            <h2>หมวดหมู่ที่ 1</h2>
-            <div class="grid">
-                <article class="booth-card" data-name="ชื่อสินค้า">
-                    <img src="images/booths/owner1.jpg" alt="รายละเอียดรูป">
-                    <div class="booth-content">
-                        <h3>ร้านที่ 1</h3>
-                        <p class="desc">รายละเอียด</p>
-                        <a class="btn" href="booth1.html">Visit Booth</a>
-                    </div>
-                </article>
+    <section class="directory-section">
+      <div class="container">
+        <!-- Category 1 -->
+        <section class="category" data-category="ตลาดอาหาร">
+          <h2>โซนร้านค้า 1</h2>
+          <div class="grid">
+            <article class="booth-card" data-name="ร้านตัวอย่าง 1">
+              <img src="images/booths/owner1.jpg" alt="ภาพหน้าร้านตัวอย่าง 1">
+              <div class="booth-content">
+                <h3>ร้านตัวอย่าง 1</h3>
+                <p class="desc">คำอธิบายร้านโดยย่อ</p>
+                <a class="btn" href="booth1.html">Visit Booth</a>
+              </div>
+            </article>
 
-                <article class="booth-card" data-name="ชื่อสินค้า">
-                    <img src="images/booths/owner2.jpg" alt="รายละเอียดรูป">
-                    <div class="booth-content">
-                        <h3>ร้านที่ 2</h3>
-                        <p class="desc">รายละเอียด</p>
-                        <a class="btn" href="booth2.html">Visit Booth</a>
-                    </div>
-                </article>
-            </div>
+            <article class="booth-card" data-name="ร้านตัวอย่าง 2">
+              <img src="images/booths/owner2.jpg" alt="ภาพหน้าร้านตัวอย่าง 2">
+              <div class="booth-content">
+                <h3>ร้านตัวอย่าง 2</h3>
+                <p class="desc">คำอธิบายร้านโดยย่อ</p>
+                <a class="btn" href="booth2.html">Visit Booth</a>
+              </div>
+            </article>
+          </div>
         </section>
 
+        <!-- Category 2 -->
+        <section class="category" data-category="โซนกิจกรรม">
+          <h2>โซนร้านค้า 2</h2>
+          <div class="grid">
+            <article class="booth-card" data-name="ร้านตัวอย่าง 3">
+              <img src="images/booths/owner3.jpg" alt="ภาพหน้าร้านตัวอย่าง 3">
+              <div class="booth-content">
+                <h3>ร้านตัวอย่าง 3</h3>
+                <p class="desc">คำอธิบายร้านโดยย่อ</p>
+                <a class="btn" href="booth3.html">Visit Booth</a>
+              </div>
+            </article>
 
-        <!-- หมวด 2 -->
-        <section class="category" data-category="ชื่อหมวดหมู่">
-            <h2>หมวดหมู่ที่ 2</h2>
-            <div class="grid">
-                <article class="booth-card" data-name="ชื่อสินค้า">
-                    <img src="images/booths/owner3.jpg" alt="รายละเอียดรูป">
-                    <div class="booth-content">
-                        <h3>ร้านที่ 3</h3>
-                        <p class="desc">รายละเอียด</p>
-                        <a class="btn" href="booth3.html">Visit Booth</a>
-                    </div>
-                </article>
-
-                <article class="booth-card" data-name="ชื่อสินค้า">
-                    <img src="images/booths/owner4.jpg" alt="รายละเอียดรูป">
-                    <div class="booth-content">
-                        <h3>ร้านที่ 4</h3>
-                        <p class="desc">รายละเอียด</p>
-                        <a class="btn" href="booth4.html">Visit Booth</a>
-                    </div>
-                </article>
-            </div>
+            <article class="booth-card" data-name="ร้านตัวอย่าง 4">
+              <img src="images/booths/owner4.jpg" alt="ภาพหน้าร้านตัวอย่าง 4">
+              <div class="booth-content">
+                <h3>ร้านตัวอย่าง 4</h3>
+                <p class="desc">คำอธิบายร้านโดยย่อ</p>
+                <a class="btn" href="booth4.html">Visit Booth</a>
+              </div>
+            </article>
+          </div>
         </section>
+      </div>
     </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025</p>
+    </div>
+  </footer>
+  
 </body>
 
 </html>
