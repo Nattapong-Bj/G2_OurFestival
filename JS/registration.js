@@ -75,30 +75,22 @@ if (!provided) {
   }
 });
 
-// โค้ด Back-end for input the data
-app.post('/submit-registration', async (req, res) => {
-    const { name, email } = req.body;
-    
-    try {
-        // 1. บันทึกข้อมูลลงฐานข้อมูล
-        await database.saveVisitor({ name, email });
-        
-        // 2. เปลี่ยนเส้นทางไปยังหน้าสรุปข้อมูล
-        res.redirect('/visitor-summary'); 
-    } catch (error) {
-        // จัดการข้อผิดพลาด
-        res.status(500).send("Registration failed.");
-    }
-});
-// โค้ด Back-end for summary the users
+// โค้ด Back-end (Node.js/Express)
+// สมมติว่า database.getAllVisitors() ได้ถูกเขียนและพร้อมใช้งานแล้ว
+
 app.get('/visitor-summary', async (req, res) => {
     try {
-        // 1. ดึงข้อมูลผู้เยี่ยมชมทุกคนจากฐานข้อมูล
-        const visitors = await database.getAllVisitors();
+        // 1. ดึงข้อมูลผู้เยี่ยมชมทั้งหมดจากฐานข้อมูล
+        const visitorsData = await database.getAllVisitors(); 
         
-        // 2. Render หน้า HTML โดยส่งข้อมูล visitors ไปแสดงผล
-        res.render('summary_page', { allVisitors: visitors });
+        // 2. *** ส่งข้อมูล (visitorsData) เข้าไปใน Template ***
+        //    โดยกำหนดชื่อตัวแปรใน Template เป็น 'allVisitors'
+        res.render('visitorsummary', { 
+            allVisitors: visitorsData 
+        }); 
+        
     } catch (error) {
-        res.status(500).send("Could not retrieve visitor data.");
+        console.error("Failed to load visitor summary:", error);
+        res.status(500).send("Error loading data.");
     }
 });

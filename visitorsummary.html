@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Summary</title>
+    <style>
+        /* ... CSS ของคุณ ... */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>📋 สรุปข้อมูลผู้เข้าเยี่ยมชมงานแฟร์</h1>
+
+    <% if (allVisitors && allVisitors.length > 0) { %>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ชื่อ</th>
+                <th>อีเมล</th>
+                <th>อายุ</th>
+                <th>เบอร์โทรศัพท์</th>
+                <th>เพศ</th>
+                <th>ความสนใจบูธ</th>
+                <th>วันที่ลงทะเบียน</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% allVisitors.forEach(visitor => { %>
+            <tr>
+                <td><%= visitor.fullname %></td>
+                <td><%= visitor.email %></td>
+                <td><%= visitor.age %></td>
+                <td><%= visitor.phonenumber %></td>
+                <td><%= visitor.gender %></td>
+                <td><%= visitor.interests %></td>
+                <td><%= visitor.participationDate %></td>
+            </tr>
+            <% }); %> </tbody>
+    </table>
+
+    <% } else { %>
+    <p>ยังไม่มีผู้ลงทะเบียน</p>
+    <% } %>
+    <a href="/register.html">ไปยังฟอร์มลงทะเบียน</a>
+</body>
+
+</html>
