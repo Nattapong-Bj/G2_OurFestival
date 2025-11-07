@@ -68,9 +68,37 @@ if (!provided) {
   valid = false;
 }
 
-  // ถ้าฟอร์มถูกต้องทุกช่อง
+// ถ้าฟอร์มถูกต้องทุกช่อง
   if (valid) {
     document.getElementById("success").textContent = "✅ Form submitted successfully!";//success massage เปลี่ยนข้อความได้
     this.reset();
   }
+});
+
+// โค้ด Back-end for input the data
+app.post('/submit-registration', async (req, res) => {
+    const { name, email } = req.body;
+    
+    try {
+        // 1. บันทึกข้อมูลลงฐานข้อมูล
+        await database.saveVisitor({ name, email });
+        
+        // 2. เปลี่ยนเส้นทางไปยังหน้าสรุปข้อมูล
+        res.redirect('/visitor-summary'); 
+    } catch (error) {
+        // จัดการข้อผิดพลาด
+        res.status(500).send("Registration failed.");
+    }
+});
+// โค้ด Back-end for summary the users
+app.get('/visitor-summary', async (req, res) => {
+    try {
+        // 1. ดึงข้อมูลผู้เยี่ยมชมทุกคนจากฐานข้อมูล
+        const visitors = await database.getAllVisitors();
+        
+        // 2. Render หน้า HTML โดยส่งข้อมูล visitors ไปแสดงผล
+        res.render('summary_page', { allVisitors: visitors });
+    } catch (error) {
+        res.status(500).send("Could not retrieve visitor data.");
+    }
 });
