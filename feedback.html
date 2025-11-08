@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Project</title>
+  <link rel="stylesheet" href="style.css"> <!-- External CSS -->
+</head>
+<body>
+  <h2>แบบประเมินความพึงพอใจงาน Our Festival </h2>
+
+  <form id="feedbackForm">
+    <!-- ข้อมูลนักศึกษา -->
+    <label for="fname">ชื่อจริง:</label>
+    <input type="text" id="fname" name="fname" placeholder="กรอกชื่อจริง" required>
+
+    <label for="lname">นามสกุล:</label>
+    <input type="text" id="lname" name="lname" placeholder="กรอกนามสกุล" required>
+
+    <label for="studentId">รหัสนักศึกษา:</label>
+    <input type="text" id="studentId" name="studentId" placeholder="เช่น 6609xxxxx" required>
+
+    <label for="year">ชั้นปี:</label>
+    <select id="year" name="year" required>
+      <option value="">-- เลือกชั้นปี --</option>
+      <option value="1">ปี 1</option>
+      <option value="2">ปี 2</option>
+      <option value="3">ปี 3</option>
+      <option value="4">ปี 4</option>
+    </select>
+
+    <label for="email">อีเมลนักศึกษา:</label>
+    <input type="email" id="email" name="email" placeholder="เช่น firstname.lastname@dome.tu.ac.th" required>
+
+    <!-- ระดับความพึงพอใจ -->
+    <p>ระดับความพึงพอใจต่อกิจกรรมโดยรวม:</p>
+    <div class="radio-group">
+      <label><input type="radio" name="satisfaction" value="5" required> ดีมาก</label><br>
+      <label><input type="radio" name="satisfaction" value="4"> ดี</label><br>
+      <label><input type="radio" name="satisfaction" value="3"> พอใช้</label><br>
+      <label><input type="radio" name="satisfaction" value="2"> ควรปรับปรุง</label><br>
+      <label><input type="radio" name="satisfaction" value="1"> แย่</label>
+    </div>
+
+    <br>
+
+    <!-- ความคิดเห็นเพิ่มเติม -->
+    <label for="comment">ความคิดเห็นเพิ่มเติม:</label>
+    <textarea id="comment" name="comment" rows="4" placeholder="พิมพ์ความคิดเห็นของคุณที่นี่..."></textarea>
+
+    <button type="submit">ส่งแบบประเมิน</button>
+  </form>
+
+  <script src="feedback.js"></script> <!-- External JavaScript -->
+</body>
+</html>
