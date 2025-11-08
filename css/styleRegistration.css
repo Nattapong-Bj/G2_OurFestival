@@ -9,6 +9,7 @@ body {
     background: url(../sources/festival-bg.png) no-repeat;
     background-size: cover;
     background-position: center;
+    margin: 0;
 }
 
 fieldset {
@@ -168,4 +169,22 @@ legend {
     color: green;
     font-weight: bold;
     margin-top: 15px;
+}
+
+.flex-menu{
+    display: flex; 
+    flex-direction: row; 
+    background-color: black; 
+    color: white; 
+    padding: 24px 40px;
+    width: 100%;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+.flex-menu a {
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration-line: none;
 }

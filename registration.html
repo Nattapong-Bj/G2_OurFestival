@@ -10,103 +10,125 @@
 </head>
 
 <body>
-  <div class="wrapper">
-    <form id="registrationForm" method="POST" novalidate>
-      <h1>Registration</h1>
+  <div style="width: 91%; display: flex; flex-direction: column; align-items: center;">
+    <div class="flex-menu">
+      <header class="site-header" style="flex-grow: 1; flex-basis: 0; ">
+        <div class="container">
+          <div class="brand">
+            <div class="logo">Festival</div>
+          </div>
 
-      <fieldset>
-        <legend>Personal Information</legend>
+        </div>
+      </header>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Homepage</a>
+        <a href="Directory.html" aria-current="page">Directory</a>
+        <a href="registration.html">Register</a>
+        <a href="feedback.html">Feedback</a>
+      </nav>
+    </div>
 
-        <div class="field-row">
 
-          <div class="wrap-part1">
+    <div class="wrapper">
 
-            <div class=" col-6 checkbox-1">
-              <div class=" col-12 borderwhite">
-                <div class="pb-4"><label for="fullname">Full Name</label></div>
-                <!-- <i class='bxr bxs-user bx-rotate-90 bx-flip-horizontal'></i> -->
-                <div class=" col-12">
-                  <input type="text" placeholder="Please enter your"  id="fullname" name="fullname" required>
+      <form id="registrationForm" method="POST" novalidate>
+        <h1>Registration</h1>
+
+        <fieldset>
+          <legend>Personal Information</legend>
+
+          <div class="field-row">
+
+            <div class="wrap-part1">
+
+              <div class=" col-6 checkbox-1">
+                <div class=" col-12 borderwhite">
+                  <div class="pb-4"><label for="fullname">Full Name</label></div>
+                  <!-- <i class='bxr bxs-user bx-rotate-90 bx-flip-horizontal'></i> -->
+                  <div class=" col-12">
+                    <input type="text" placeholder="Please enter your" id="fullname" name="fullname" required>
+                  </div>
+                  <div id="fullname-error" class="error-message"></div> <!-- แสดง error -->
                 </div>
-                <div id="fullname-error" class="error-message"></div> <!-- แสดง error -->
               </div>
-            </div>
 
-            <div class="col-6 checkbox-1">
-              <div class="col-12 borderwhite">
-                <div class="pb-4"><label for="email">Email</label></div>
-                <!-- <i class='bxr  bxs-send-alt bx-rotate-90 bx-flip-horizontal'></i> -->
-                <div class=" col-12">
-                  <input type="text" placeholder="Email" id="email" name="email" required>
+              <div class="col-6 checkbox-1">
+                <div class="col-12 borderwhite">
+                  <div class="pb-4"><label for="email">Email</label></div>
+                  <!-- <i class='bxr  bxs-send-alt bx-rotate-90 bx-flip-horizontal'></i> -->
+                  <div class=" col-12">
+                    <input type="text" placeholder="Email" id="email" name="email" required>
+                  </div>
+                  <div id="email-error" class="error-message"></div> <!-- แสดง error -->
                 </div>
-                <div id="email-error" class="error-message"></div> <!-- แสดง error -->
               </div>
-            </div>
 
-            <div class="col-6 checkbox-1">
-              <div class="col-12 borderwhite">
-                <div class="pb-4"><label for="age">Age</label></div>
-                <!-- <i class='bxr  bxs-user-square bx-rotate-90 bx-flip-horizontal'></i> -->
-                <div class=" col-12">
-                  <input type="number" placeholder="Please enter your" id="age" name="age" min="1" max="100" required>
+              <div class="col-6 checkbox-1">
+                <div class="col-12 borderwhite">
+                  <div class="pb-4"><label for="age">Age</label></div>
+                  <!-- <i class='bxr  bxs-user-square bx-rotate-90 bx-flip-horizontal'></i> -->
+                  <div class=" col-12">
+                    <input type="number" placeholder="Please enter your" id="age" name="age" min="1" max="100" required>
+                  </div>
+                  <div id="age-error" class="error-message"></div> <!-- แสดง error -->
                 </div>
-                <div id="age-error" class="error-message"></div> <!-- แสดง error -->
               </div>
-            </div>
 
-            <div class="col-6 checkbox-1">
-              <div class="col-12 borderwhite">
-                <div class="pb-4"><label for="phone">Phone Number</label></div>
-                <!-- <i class='bxr  bxs-phone-outgoing'></i>  -->
-                <div class=" col-12">
-                  <input type="tel" placeholder="Phone Number ..." id="phone" name="phone" maxlength="10" required>
+              <div class="col-6 checkbox-1">
+                <div class="col-12 borderwhite">
+                  <div class="pb-4"><label for="phone">Phone Number</label></div>
+                  <!-- <i class='bxr  bxs-phone-outgoing'></i>  -->
+                  <div class=" col-12">
+                    <input type="tel" placeholder="Phone Number ..." id="phone" name="phone" maxlength="10" required>
+                  </div>
+                  <div id="phone-error" class="error-message"></div> <!-- แสดง error -->
                 </div>
-                <div id="phone-error" class="error-message"></div> <!-- แสดง error -->
               </div>
+
             </div>
 
           </div>
 
-        </div>
+          <div class="input-field">
+            <div class="pb-4 font-bold">Gender</div>
+            <div style="display: flex;">
+              <div class="col-3"><input type="radio" name="gender" value="male"> Male</div>
+              <div class="col-3"><input type="radio" name="gender" value="female"> Female</div>
+              <div class="col-6"><input type="radio" name="gender" value="other"> Prefer not to say</div>
+            </div>
+            <div id="gender-error" class="error-message"></div> <!-- แสดง error -->
 
-        <div class="input-field">
-          <div class="pb-4 font-bold">Gender</div>
-          <div style="display: flex;">
-            <div class="col-3"><input type="radio" name="gender" value="male"> Male</div>
-            <div class="col-3"><input type="radio" name="gender" value="female"> Female</div>
-            <div class="col-6"><input type="radio" name="gender" value="other"> Prefer not to say</div>
+
           </div>
-          <div id="gender-error" class="error-message"></div> <!-- แสดง error -->
-
-
-        </div>
-        <div class="input-field">
-          <div class="pb-4 font-bold">Booth Interests</div>
-          <div style="display: flex;">
-            <div class="col-3"><input type="checkbox" name="interests" value="booth1"> Booth 1</div>
-            <div class="col-3"><input type="checkbox" name="interests" value="booth2"> Booth 2</div>
-            <div class="col-3"><input type="checkbox" name="interests" value="booth3"> Booth 3</div>
-            <div class="col-3"><input type="checkbox" name="interests" value="booth4"> Booth 4</div>
+          <div class="input-field">
+            <div class="pb-4 font-bold">Booth Interests</div>
+            <div style="display: flex;">
+              <div class="col-3"><input type="checkbox" name="interests" value="booth1"> Booth 1</div>
+              <div class="col-3"><input type="checkbox" name="interests" value="booth2"> Booth 2</div>
+              <div class="col-3"><input type="checkbox" name="interests" value="booth3"> Booth 3</div>
+              <div class="col-3"><input type="checkbox" name="interests" value="booth4"> Booth 4</div>
+            </div>
+            <div id="interests-error" class="error-message"></div> <!-- แสดง error -->
           </div>
-          <div id="interests-error" class="error-message"></div> <!-- แสดง error -->
-        </div>
 
-        <div class="input-field date">
-          <div class="pb-4 font-bold"><label for="participation-date">participation date</label></div>
-          <input type="date" id="participation-date" name="participation-date" min="<?= date('Y-m-d'); ?>">
-          <div id="date-error" class="error-message"></div> <!-- แสดง error -->
-        </div>
-        <div class="input-field pt-2">
-          <label><input  id="provided" name="provided" type="checkbox"> I here by declare that the information provided above is true and
-            correct.</label>
-        </div>
-        <div id="provided-error" class="error-message"></div>
+          <div class="input-field date">
+            <div class="pb-4 font-bold"><label for="participation-date">participation date</label></div>
+            <input type="date" id="participation-date" name="participation-date" min="<?= date('Y-m-d'); ?>">
+            <div id="date-error" class="error-message"></div> <!-- แสดง error -->
+          </div>
+          <div class="input-field pt-2">
+            <label><input id="provided" name="provided" type="checkbox"> I here by declare that the information provided
+              above is true and
+              correct.</label>
+          </div>
+          <div id="provided-error" class="error-message"></div>
 
-        <div class="pt-2"><input type="submit" class="btn" value="Submit"></div>
-        <div id="success" class="success-message"></div> <!-- แสดงข้อความ success เมื่อส่งฟอร์มสำเร็จ -->
+          <div class="pt-2"><input type="submit" class="btn" value="Submit"></div>
+          <div id="success" class="success-message"></div> <!-- แสดงข้อความ success เมื่อส่งฟอร์มสำเร็จ -->
 
-      </fieldset>
-    </form>
+        </fieldset>
+      </form>
+    </div>
   </div>
   <script src="JS/registration.js"></script>
 </body>
