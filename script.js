@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cabin = document.createElement('div');
     cabin.className = 'cabin';
+    cabin.style.transform = `rotate(${baseAngle}deg) translateY(-200px)`;
 
     const memberPhoto = document.createElement('div');
     memberPhoto.className = 'member-photo';
@@ -64,12 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function spin() {
     if (spinning) {
       wheelAngle = (wheelAngle + 0.1) % 360;
-      cabins.forEach(({ cabin, memberPhoto, baseAngle }) => {
-        const angle = baseAngle + wheelAngle;
-
-      cabin.style.transform = `rotate(${angle}deg) translateY(-200px)`;
-
-        memberPhoto.style.transform = `rotate(${-angle}deg)`;
+      wheel.style.transform = `rotate(${wheelAngle}deg)`;
+      cabins.forEach(({ memberPhoto, baseAngle }) => {
+        memberPhoto.style.transform = `rotate(${-baseAngle - wheelAngle}deg) scale(var(--cabin-scale))`;
       });
     }
     requestAnimationFrame(spin);
