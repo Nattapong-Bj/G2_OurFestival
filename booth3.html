@@ -5,90 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="บูทอาหารคาวไทยย้อนยุค — รสชาติบ้านๆ แบบงานวัด พร้อมเมนูไก่ทอด ลูกชิ้น หมูสะเต๊ะ" />
   <title>บูทอาหารคาวย้อนยุค - งานวัด</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="booth34style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="has-bg" style="--page-bg: url('booth3-4img/bg.png');">
+<body>
   <header>
-    <div class="wrap">
-      <h1>บูทอาหารคาวไทยย้อนยุค</h1>
-      <div class="header-right">
-        <nav>
-          <a href="index.html" class="home-btn">🏠 หน้าหลัก</a>
-          <a href="booth-directory.html">🎪 รวมบูท</a>
-        </nav>
-        <button id="cart-btn" class="home-btn" aria-label="ตะกร้าสินค้า">🧺 <span id="cart-count">0</span></button>
-      </div>
-    </div>
+    <h1>บูทอาหารคาวไทยย้อนยุค</h1>
+    <a href="index.html" class="home-btn">🏠 กลับหน้าหลัก</a>
   </header>
 
-  <main class="booth">
-    <div class="wrap">
-      <div class="intro">
-        <div class="intro-image">
-          <img src="booth3-4img/sumkaw.png" alt="บรรยากาศงานวัดสมัยก่อน มีธงสามเหลี่ยมและไฟหลอด" loading="lazy" />
+  <section class="booth">
+    <div class="intro">
+      <div class="intro-image">
+        <img src="booth3-4img/sumkaw.png" alt="บรรยากาศงานวัดสมัยก่อน" />
+      </div>
+      <div class="intro-text">
+        <p>รสชาติบ้านๆ แบบงานวัดสมัยก่อน กลิ่นเตาถ่าน โดนใจสุด</p>
+      </div>
+    </div>
+
+    <div class="products">
+      <div class="product">
+        <div class="product-image">
+          <img src="booth3-4img/kai.png" alt="ไก่ทอดงานวัด" />
         </div>
-        <div class="intro-content">
-          <h2>อร่อยสไตล์งานวัด</h2>
-          <p>รสชาติบ้านๆ แบบงานวัดสมัยก่อน กลิ่นเตาถ่าน โดนใจสุด</p>
-        </div>
+        <h3>ไก่ทอดงานวัด</h3>
+        <p>กรอบนอกฉ่ำใน โรยพริกไทยกระเทียม</p>
+        <p class="price">ราคา: 45 บาท</p>
+        <button>สั่งซื้อ</button>
       </div>
 
-      <section class="products">
-        <!-- ไก่ทอดงานวัด -->
-        <article class="product" data-id="savory-fried-chicken" data-price="45" data-booth="savory">
-          <div class="product-image">
-            <img src="booth3-4img/kai.png" alt="ไก่ทอดงานวัด" loading="lazy" />
-          </div>
-          <h3>ไก่ทอดงานวัด</h3>
-          <p>กรอบนอกฉ่ำใน โรยพริกไทยกระเทียม</p>
-          <p class="price">45 ฿</p>
-          <button class="btn-action" aria-label="ใส่ตะกร้า ไก่ทอดงานวัด">ใส่ตะกร้า</button>
-        </article>
+      <div class="product">
+        <div class="product-image">
+          <img src="booth3-4img/meatball.png" alt="ลูกชิ้นปิ้ง" />
+        </div>
+        <h3>ลูกชิ้นปิ้ง</h3>
+        <p>น้ำจิ้มสามรส สูตรงานวัด</p>
+        <p class="price">ราคา: 25 บาท</p>
+        <button>สั่งซื้อ</button>
+      </div>
 
-        <!-- ลูกชิ้นปิ้ง -->
-        <article class="product" data-id="savory-grilled-meatball" data-price="25" data-booth="savory">
-          <div class="product-image">
-            <img src="booth3-4img/meatball.png" alt="ลูกชิ้นปิ้งไม้" loading="lazy" />
-          </div>
-          <h3>ลูกชิ้นปิ้ง</h3>
-          <p>น้ำจิ้มสามรส สูตรงานวัด</p>
-          <p class="price">25 ฿</p>
-          <button class="btn-action" aria-label="ใส่ตะกร้า ลูกชิ้นปิ้ง">ใส่ตะกร้า</button>
-        </article>
-
-        <!-- หมูสะเต๊ะ -->
-        <article class="product" data-id="savory-satay" data-price="40" data-booth="savory">
-          <div class="product-image">
-            <img src="booth3-4img/moo.png" alt="หมูสะเต๊ะ" loading="lazy" />
-          </div>
-          <h3>หมูสะเต๊ะ</h3>
-          <p>หอมขมิ้น กินคู่แตงกวาดอง</p>
-          <p class="price">40 ฿</p>
-          <button class="btn-action" aria-label="ใส่ตะกร้า หมูสะเต๊ะ">ใส่ตะกร้า</button>
-        </article>
-      </section>
-
-      <p class="note">โปรคอมโบ: ซื้อครบ 3 รายการในบูทนี้ ลด 10% (คำนวณให้อัตโนมัติในตะกร้า)</p>
+      <div class="product">
+        <div class="product-image">
+          <img src="booth3-4img/moo.png" alt="หมูสะเต๊ะ" />
+        </div>
+        <h3>หมูสะเต๊ะ</h3>
+        <p>หอมขมิ้น กินคู่แตงกวาดอง</p>
+        <p class="price">ราคา: 40 บาท</p>
+        <button>สั่งซื้อ</button>
+      </div>
     </div>
-  </main>
+  </section>
 
   <footer>
-    <div class="wrap">
-      <p>งานวัด — บูทอาหารคาวไทยย้อนยุค</p>
-    </div>
+    <p>งานวัด - บูทอาหารคาวไทยย้อนยุค</p>
   </footer>
-  
-  <div class="toast" role="alert"></div>
-  <div class="image-modal">
-    <div class="image-modal__bg"></div>
-    <div class="image-modal__content">
-      <img src="" alt="" />
-      <button class="image-modal__close" aria-label="ปิด">✕</button>
-    </div>
-  </div>
 
   <script src="booth.js" defer></script>
 </body>
