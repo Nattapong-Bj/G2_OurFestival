@@ -46,6 +46,25 @@ body {
   color: #fff
 }
 
+.logo h4 {
+  background: linear-gradient(
+    to right,
+    #9f9f9f 0%,
+    white 10%,
+    #868686 20%
+  );
+  background-size: 300px 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shift 4s linear infinite;
+}
+
+@keyframes shift {
+  0%   { background-position: -150px 0; }
+  100% { background-position: 300px 0; }
+}
+
 .nav {
   display: flex;
   gap: 22px;
@@ -96,7 +115,7 @@ body {
 }
 
 .story-section h2 {
-  font-size: 2.1rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
 }
 
@@ -122,33 +141,51 @@ body {
 }
 
 .gallery-section h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 250px;
-  gap: 1rem;
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
+  gap: 1rem;
+
+  /* layout แบบที่ส่งรูปมา */
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: 220px 260px 260px;
+  grid-template-areas:
+    "top top"
+    "left rightTop"
+    "left rightBottom";
 }
 
 .gallery-item {
   background-color: #222;
+  border-radius: 18px;
   background-size: cover;
   background-position: center;
-  border-radius: 8px;
 }
 
 .gallery-item.item-1 {
-  grid-column: 1 / 3;
+  grid-area: top;
+  background-image: url("resources/picture2.jpg");
 }
 
 .gallery-item.item-2 {
-  grid-row: span 2;
+  grid-area: left;
+  background-image: url("resources/picture5.jpg");
+}
+
+.gallery-item.item-3 {
+  grid-area: rightTop;
+  background-image: url("resources/picture3.jpg");
+}
+
+.gallery-item.item-4 {
+  grid-area: rightBottom;
+  background-image: url("resources/picture4.jpg");
 }
 
 .team-section {
@@ -161,7 +198,7 @@ body {
 }
 
 .team-section h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -193,7 +230,6 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  animation: rotate-wheel 45s linear infinite;
 }
 
 .ferris-wheel-structure::after {
@@ -240,7 +276,6 @@ body {
 .cabin .member-photo {
   width: 100%;
   height: 100%;
-  animation: rotate-cabin 45s linear infinite;
   transition: transform 0.3s ease;
 }
 
@@ -275,13 +310,16 @@ body {
 .modal-content {
   background-color: #1a1d1f;
   margin: auto;
-  padding: 0px;
-  border: px solid #888;
+  padding: 20px 20px 30px;
+  border: 1px solid #888;
   width: 90%;
   max-width: 400px;
   border-radius: 10px;
   text-align: center;
   position: relative;
+  height: auto;         
+  min-height: 250px;    
+  overflow: visible;
 }
 
 .modal-close {
@@ -298,4 +336,19 @@ body {
   width: 150px;
   height: 150px;
   margin: 0 auto 1.5rem;
+}
+
+.site-footer {
+  background-color: #111;     
+  color: #ddd;               
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 4rem;
+  font-family: 'Montserrat', sans-serif;
+  border-top: 1px solid #333; 
+}
+
+.footer-container p {
+  margin: 0;
+  font-size: 0.9rem;
 }
