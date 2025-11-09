@@ -260,11 +260,11 @@ legend {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
     background: var(--bg);
     color: #fff;
 }
 
 .headerbar {
     width: 100%;
+    font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
 }
