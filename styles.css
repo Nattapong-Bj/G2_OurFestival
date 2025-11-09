@@ -152,7 +152,6 @@ body {
   margin: 0 auto;
   gap: 1rem;
 
-  /* layout แบบที่ส่งรูปมา */
   grid-template-columns: 1.2fr 1fr;
   grid-template-rows: 220px 260px 260px;
   grid-template-areas:
@@ -252,15 +251,15 @@ body {
   left: 0;
   width: 100%;
   height: 5px;
-  background: #333;
-  transform: translateY(-50%);
-  rotate: 54deg;
+  background: #444;
+  transform-origin: center;
+  transform: translateY(-50%) rotate(18deg);
 }
 
-.spoke:nth-child(2) { transform: translateY(-50%) rotate(36deg); }
-.spoke:nth-child(3) { transform: translateY(-50%) rotate(72deg); }
-.spoke:nth-child(4) { transform: translateY(-50%) rotate(108deg); }
-.spoke:nth-child(5) { transform: translateY(-50%) rotate(144deg); }
+.spoke:nth-child(2) { transform: translateY(-50%) rotate(54deg); }
+.spoke:nth-child(3) { transform: translateY(-50%) rotate(90deg); }
+.spoke:nth-child(4) { transform: translateY(-50%) rotate(126deg); }
+.spoke:nth-child(5) { transform: translateY(-50%) rotate(162deg); }
 
 .cabin {
   position: absolute;
@@ -273,14 +272,14 @@ body {
   cursor: pointer;
 }
 
-.cabin .member-photo {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.3s ease;
+.cabin {
+  --cabin-scale: 1;
+  transition: --cabin-scale 0.3s ease;
 }
 
-.cabin:hover .member-photo {
-  transform: scale(1.15);
+.cabin:hover {
+  --cabin-scale: 1.15;
+  z-index: 10;
 }
 
 .member-photo {
