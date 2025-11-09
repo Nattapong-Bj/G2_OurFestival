@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="บูทของหวานไทยย้อนยุค — ขนมครก สายไหม กล้วยเชื่อม รสหวานหอมแบบงานวัด" />
+  <title>บูทของหวานย้อนยุค - งานวัด</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="booth34style.css" />
+</head>
+<body class="has-bg" style="--page-bg: url('booth3-4img/bg.png');">
+  <header>
+    <div class="wrap">
+      <h1>บูทของหวานไทยย้อนยุค</h1>
+      <div class="header-right">
+        <nav>
+          <a href="index.html" class="home-btn">🏠 หน้าหลัก</a>
+          <a href="booth-directory.html">🎪 รวมบูท</a>
+        </nav>
+        <button id="cart-btn" class="home-btn" aria-label="ตะกร้าสินค้า">🧺 <span id="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="booth">
+    <div class="wrap">
+      <div class="intro">
+        <div class="intro-image">
+          <img src="booth3-4img/sumwan.png" alt="ซุ้มขนมไทยในงานวัดแบบโบราณ" loading="lazy" />
+        </div>
+        <div class="intro-content">
+          <h2>หวานหอมแบบไทยๆ</h2>
+          <p>หวานหอมแบบไทยๆ ย้อนความทรงจำสมัยเด็ก</p>
+        </div>
+      </div>
+
+      <section class="products">
+        <!-- ขนมครก -->
+        <article class="product" data-id="dessert-kanomkrok" data-price="30" data-booth="dessert">
+          <div class="product-image">
+            <img src="booth3-4img/kanom,.png" alt="ขนมครก" loading="lazy" />
+          </div>
+          <h3>ขนมครก</h3>
+          <p>หน้าข้าวโพด/ต้นหอม แป้งหอมกะทิ</p>
+          <p class="price">30 ฿</p>
+          <button class="btn-action" aria-label="ใส่ตะกร้า ขนมครก">ใส่ตะกร้า</button>
+        </article>
+
+        <!-- สายไหม -->
+        <article class="product" data-id="dessert-cottoncandy" data-price="25" data-booth="dessert">
+          <div class="product-image">
+            <img src="booth3-4img/saimai.png" alt="สายไหมสีพาสเทล" loading="lazy" />
+          </div>
+          <h3>สายไหม</h3>
+          <p>นุ่มฟู สีหวานละมุน</p>
+          <p class="price">25 ฿</p>
+          <button class="btn-action" aria-label="ใส่ตะกร้า สายไหม">ใส่ตะกร้า</button>
+        </article>
+
+        <!-- กล้วยเชื่อม -->
+        <article class="product" data-id="dessert-banana" data-price="35" data-booth="dessert">
+          <div class="product-image">
+            <img src="booth3-4img/kluai.png" alt="กล้วยเชื่อมกะทิ" loading="lazy" />
+          </div>
+          <h3>กล้วยเชื่อม</h3>
+          <p>หอมใบเตย ราดกะทิ</p>
+          <p class="price">35 ฿</p>
+          <button class="btn-action" aria-label="ใส่ตะกร้า กล้วยเชื่อม">ใส่ตะกร้า</button>
+        </article>
+      </section>
+
+      <p class="note">โปรหวานใจ: ซื้อครบ 3 รายการในบูทนี้ ลด 10% (ตะกร้าคิดให้เอง)</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>งานวัด — บูทของหวานไทยย้อนยุค</p>
+    </div>
+  </footer>
+  
+  <div class="toast" role="alert"></div>
+  <div class="image-modal">
+    <div class="image-modal__bg"></div>
+    <div class="image-modal__content">
+      <img src="" alt="" />
+      <button class="image-modal__close" aria-label="ปิด">✕</button>
+    </div>
+  </div>
+
+  <script src="booth.js" defer></script>
+</body>
+</html>

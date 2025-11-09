@@ -1,0 +1,352 @@
+/* งานวัด — สไตล์หน้าบูท */
+:root {
+  --accent: #e65100;
+  --accent-2: #ff833a;
+  --muted: #666;
+  --card: #fff;
+  --max-width: 1200px;
+  --container-pad: 20px;
+  --radius: 12px;
+  --font-thai: 'Noto Sans Thai', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  font-family: var(--font-thai);
+  background: linear-gradient(180deg, #fffbf7 0%, #fff5e6 100%);
+  color: #2d2d2d;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Per-page background image */
+body.has-bg {
+  background-image: linear-gradient(rgba(255,250,246,0.82), rgba(255,248,240,0.82)), var(--page-bg, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+header {
+  background: #fff;
+  padding: 16px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* header right block (nav + cart) */
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+#cart-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+nav a.home-btn {
+  background: rgba(227,126,34,0.1);
+  border: 1px solid rgba(226,126,34,0.15);
+  font-weight: 500;
+}
+
+nav a:hover {
+  background: rgba(227,126,34,0.15);
+}
+
+main.booth {
+  flex: 1;
+  padding: 32px 0;
+}
+
+.intro {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 32px;
+  background: #fff;
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.intro-image {
+  flex-shrink: 0;
+}
+
+.intro-image img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.intro-content {
+  flex: 1;
+}
+
+.intro h2 {
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.intro p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.product {
+  background: var(--card);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.product-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.product h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.product p {
+  margin: 4px 0;
+  color: var(--muted);
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #222;
+  margin: 12px 0;
+}
+
+.btn-action {
+  margin-top: auto;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-action:hover {
+  filter: brightness(1.1);
+}
+
+.btn-action:active {
+  transform: translateY(1px);
+}
+
+.note {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  background: #fff;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .intro {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .intro-image img {
+    width: 160px;
+  }
+  
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+  
+  .product {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  header .wrap {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: rgba(34,34,34,0.95);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.25s ease;
+  z-index: 2000;
+  max-width: 320px;
+  font-size: 0.95rem;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image modal */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  display: none; /* hidden by default; JS toggles .active */
+  align-items: center;
+  justify-content: center;
+  z-index: 2100;
+  padding: 20px;
+}
+
+.image-modal.active{
+  display:flex;
+}
+
+.image-modal__bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+}
+
+.image-modal__content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  z-index: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  padding: 8px;
+}
+
+.image-modal__content img {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.image-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.image-modal__close:hover {
+  background: #fff;
+  transform: scale(1.05);
+}
