@@ -1,12 +1,11 @@
 body {
-    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: white;
     font-size: 16px;
     color: #171718;
-    background: url(../sources/bg_form.png) no-repeat;
+    background:#0f1112;
     background-size: cover;
     background-position: center;
     margin: 0;
@@ -194,6 +193,7 @@ legend {
     text-decoration-line: none;
 }
 
+/* Header Styles */
 .site-header {
     position: sticky;
     top: 0;
@@ -225,19 +225,6 @@ legend {
     color: #fff
 }
 
-.logo h4 {
-    background: linear-gradient(to right,
-            #9f9f9f 0%,
-            white 10%,
-            #868686 20%);
-    background-size: 300px 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: shift 4s linear infinite;
-}
-
-
 .nav {
     display: flex;
     gap: 22px;
@@ -247,23 +234,16 @@ legend {
 .nav a {
     color: #dfe6e6;
     text-decoration: none;
-    font-weight: 500
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .nav a:hover {
-    text-decoration: underline
-}
-
-.bar {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--bg);
+    text-decoration: underline;
     color: #fff;
 }
-
-.headerbar {
-    width: 100%;
-    font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+.nav a[aria-current="page"] {
+  color: #fff;
+  text-decoration: underline;
 }
+
