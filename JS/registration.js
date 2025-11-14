@@ -74,10 +74,11 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     interests.forEach(i => formData.append('interests[]', i));
     formData.append('participation_date', participationDate);
 
-    fetch('php/savedata.php', {
-      method: 'POST',
-      body: formData
-    })
+  fetch('php/saveregistration.php', {
+    method: 'POST',
+    body: formData
+  })
+
     .then(res => res.json())
     .then(data => {
       if (data.status === 'success') {

@@ -11,7 +11,7 @@ $gender = $_POST['gender'] ?? '';
 $interests = isset($_POST['interests']) && is_array($_POST['interests']) ? $_POST['interests'] : [];
 $participation_date = $_POST['participation_date'] ?? '';
 
-$newData = [
+$newRegistration = [
     "fullname" => $fullname,
     "lastname" => $lastname,
     "email" => $email,
@@ -24,7 +24,7 @@ $newData = [
 ];
 
 // เก็บข้อมูลลงไฟล์ JSON
-$file = __DIR__ . '/data.json';
+$file = __DIR__ . '/registration.json';
 
 $existing = [];
 if (file_exists($file) && filesize($file) > 0) {
@@ -34,7 +34,7 @@ if (file_exists($file) && filesize($file) > 0) {
     }
 }
 
-$existing[] = $newData;
+$existing[] = $newRegistration;
 
 if (file_put_contents($file, json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)) !== false) {
     echo json_encode(["status" => "success"]);
