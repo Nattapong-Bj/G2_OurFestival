@@ -31,7 +31,7 @@
   <!-- Main Content -->
   <main>
     <h2>แบบฟอร์มลงทะเบียนผู้เข้าร่วมงาน</h2>
-    <form id="registrationForm">
+    <form id="registrationForm" action="php/savedata.php" method="POST" novalidate>
       <fieldset>
         <legend>Personal Information</legend>
 
@@ -76,10 +76,11 @@
         <!-- บูธที่สนใจ -->
         <label style="margin-top: 1rem;">บูธที่สนใจ:</label>
         <div class="radio-group">
-          <label><input type="checkbox" name="interests" value="booth1"> Booth 1</label>
-          <label><input type="checkbox" name="interests" value="booth2"> Booth 2</label>
-          <label><input type="checkbox" name="interests" value="booth3"> Booth 3</label>
-          <label><input type="checkbox" name="interests" value="booth4"> Booth 4</label>
+            <input type="checkbox" name="interests[]" value="booth1">
+            <input type="checkbox" name="interests[]" value="booth2">
+            <input type="checkbox" name="interests[]" value="booth3">
+            <input type="checkbox" name="interests[]" value="booth4">
+
         </div>
         <div id="interests-error" class="error-message"></div> <!-- แสดง error -->
 
@@ -87,7 +88,7 @@
 
         <label for="participation-date">วันที่เข้าร่วมกิจกรรม:</label>
         <div class="radio-group">
-          <input type="date" id="participation-date" name="participation-date" min="<?= date('Y-m-d'); ?>"></div>
+          <input type="date" id="participation_date" name="participation_date">
         <div id="date-error" class="error-message"></div> <!-- แสดง error -->
 
         <!-- สร้างกล่องยืนยันว่าตกลง -->
@@ -99,6 +100,9 @@
         <button type="submit">ส่งแบบฟอร์ม</button>
         <div id="success" class="success-message"></div> <!-- แสดงข้อความ success เมื่อส่งฟอร์มสำเร็จ -->
     </form>
+      <a href="php/viewdata.php" class="view-button">ดูข้อมูลผู้ลงทะเบียน</a>
+
+
   </main>
 
 
