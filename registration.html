@@ -62,17 +62,23 @@
         <div class="input-group">
           <input type="tel" placeholder="เช่น 093xxxxxxx" id="phone" name="phone" maxlength="10" required></div>
         <div id="phone-error" class="error-message"></div> <!-- แสดง error -->
-
+                <!-- เพศ -->
+        <label style="margin-top: 1rem;">เพศ:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="ชาย" required> ชาย </label>
+          <label><input type="radio" name="gender" value="หญิง"> หญิง </label>
+          <label><input type="radio" name="gender" value="ไม่ระบุ"> ไม่ระบุ </label>
+        </div>
         <div id="gender-error" class="error-message"></div>
 
 
         <!-- บูธที่สนใจ -->
         <label style="margin-top: 1rem;">บูธที่สนใจ:</label>
         <div class="radio-group">
-            <input type="checkbox" name="interests[]" value="booth1">บูทเครื่องเล่น<br>
-            <input type="checkbox" name="interests[]" value="booth2">บูทขายของเล่น<br>
-            <input type="checkbox" name="interests[]" value="booth3">บูทอาหารคาว<br>
-            <input type="checkbox" name="interests[]" value="booth4">บูทอาหารหวาน<br>
+            <input type="checkbox" name="interests[]" value="บูทเครื่องเล่น">บูทเครื่องเล่น<br>
+            <input type="checkbox" name="interests[]" value="บูทขายของเล่น">บูทขายของเล่น<br>
+            <input type="checkbox" name="interests[]" value="บูทอาหารคาว">บูทอาหารคาว<br>
+            <input type="checkbox" name="interests[]" value="บูทอาหารหวาน">บูทอาหารหวาน<br>
 
         </div>
         <div id="interests-error" class="error-message"></div> <!-- แสดง error -->
@@ -86,7 +92,7 @@
 
         <!-- สร้างกล่องยืนยันว่าตกลง -->
         <label><input id="provided" name="provided" type="checkbox">
-          ข้าพเจ้าขอรับรองว่าข้อมูลที่ให้ไว้ข้างต้นเป็นความจริงและถูกต้อง.</label>
+          ข้าพเจ้าขอรับรองว่าข้อมูลที่ให้ไว้ข้างต้นเป็นความจริงและถูกต้อง</label>
         <div id="provided-error" class="error-message"></div>
 
         <!-- ส่งแบบฟอร์ม -->

@@ -19,46 +19,46 @@ document.getElementById("registrationForm").addEventListener("submit", function(
 
   // Validation (เหมือนเดิม)
   if (fullname === "") {
-    document.getElementById("fullname-error").textContent = "⚠️ Please enter your full name.";
+    document.getElementById("fullname-error").textContent = "คุณยังไม่ได้กรอกชื่อจริง";
     valid = false;
   }
   if (email === "") {
-    document.getElementById("email-error").textContent = "⚠️ Please enter your email.";
+    document.getElementById("email-error").textContent = "คุณยังไม่ได้กรอกอีเมล";
     valid = false;
   }
   if (age === "") {
-    document.getElementById("age-error").textContent = "⚠️ Please enter your age.";
+    document.getElementById("age-error").textContent = "คุณยังไม่ได้กรอกอายุ";
     valid = false;
   }
   if (phone === "") {
-    document.getElementById("phone-error").textContent = "⚠️ Please enter your phone number.";
+    document.getElementById("phone-error").textContent = "คุณยังไม่ได้กรอกหมายเลขโทรศัพท์";
     valid = false;
   } else if (!/^\d{10}$/.test(phone)) {
-    document.getElementById("phone-error").textContent = "⚠️ Phone number must be 10 digits.";
+    document.getElementById("phone-error").textContent = "คุณกรอกหมาเลขโทรศัพท์ไม่ครบ 10 หมายเลข";
     valid = false;
   }
   if (!gender) {
-    document.getElementById("gender-error").textContent = "⚠️ Please select your gender.";
+    document.getElementById("gender-error").textContent = "คุณยังไม่ได้กรอกเพศ";
     valid = false;
   }
   if (interests.length === 0) {
-    document.getElementById("interests-error").textContent = "⚠️ Please select at least one booth.";
+    document.getElementById("interests-error").textContent = "คุณยังไม่ได้กรอกบูธที่สนใจ";
     valid = false;
   }
   if (participationDate === "") {
-    document.getElementById("date-error").textContent = "⚠️ Please select a participation date.";
+    document.getElementById("date-error").textContent = "คุณยังไม่ได้กรอกวันที่ต้องการจะเข้าร่วม";
     valid = false;
   } else {
     const selectedDate = new Date(participationDate);
     const today = new Date();
     today.setHours(0,0,0,0);
     if (selectedDate < today) {
-      document.getElementById("date-error").textContent = "⚠️ You cannot select a past date.";
+      document.getElementById("date-error").textContent = "คุณไม่สามารถเลือกวันที่ผ่านไปแล้วได้";
       valid = false;
     }
   }
   if (!provided) {
-    document.getElementById("provided-error").textContent = "⚠️ You must confirm that the information provided is correct.";
+    document.getElementById("provided-error").textContent = "คุณต้องยืนยันความถูกต้องของข้อมูลที่กรอกเข้ามา";
     valid = false;
   }
 
@@ -82,7 +82,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     .then(res => res.json())
     .then(data => {
       if (data.status === 'success') {
-        document.getElementById("success").textContent = "✅ Form submitted successfully!";
+        document.getElementById("success").textContent = "แบบฟอร์มของคุณถูกบันทึกแล้ว";
         this.reset();
       } else {
         alert('เกิดข้อผิดพลาด: ' + (data.message || 'Cannot save data'));
