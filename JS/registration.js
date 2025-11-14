@@ -22,6 +22,10 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     document.getElementById("fullname-error").textContent = "คุณยังไม่ได้กรอกชื่อจริง";
     valid = false;
   }
+    if (lastname === "") {
+    document.getElementById("lastname-error").textContent = "คุณยังไม่ได้กรอกนามสกุล";
+    valid = false;
+  }
   if (email === "") {
     document.getElementById("email-error").textContent = "คุณยังไม่ได้กรอกอีเมล";
     valid = false;
