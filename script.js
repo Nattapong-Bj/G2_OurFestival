@@ -1,16 +1,31 @@
+const hexToRgb = (hex) => {
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? `${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)}` : '0,0,0';
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const members = [
-    { name: 'Ariya Tangrojanakul', id: '6609520108', role: '', img: 'resources/member1.jpg' },
-    { name: 'Pandhana Buranrat',   id: '6609612145', role: '', img: 'resources/member2.jpg' },
-    { name: 'sorawit tansricharoen', id: '6609650673', role: '', img: 'resources/member3.jpg' },
-    { name: 'Nattapong Boonjeen',  id: '6609652067', role: '', img: 'resources/member4.jpg' },
-    { name: 'Paweethida Buadum',   id: '6609652117', role: '', img: 'resources/member5.jpg' },
-    { name: 'Mintthita Jindarattananan', id: '6609652323', role: '', img: 'resources/member6.jpg' },
-    { name: 'Siraphop Kitisrunya', id: '6609652349', role: '', img: 'resources/member7.jpg' },
-    { name: 'Tula Lakul',          id: '6709650359', role: '', img: 'resources/member8.jpg' },
-    { name: 'Chakriya Sudsaneh',   id: '6709620055', role: '', img: 'resources/member9.jpg' },
-    { name: 'Teetapath Magroodin', id: '6709616558', role: '', img: 'resources/member10.jpg' },
+    { name: 'Ariya Tangrojanakul', id: '6609520108', role: 'Feedback Page', img: 'resources/member1.jpg', color: '#e02cc5ff' },
+    { name: 'Pandhana Buranrat',   id: '6609612145', role: 'Registration Page', img: 'resources/member2.jpg', color: '#f3da4bff' },
+    { name: 'sorawit tansricharoen', id: '6609650673', role: 'Booth4 Page', img: 'resources/member3.jpg', color: 'rgba(51, 105, 242, 1)' },
+    { name: 'Nattapong Boonjeen',  id: '6609652067', role: 'Booth Directory Page', img: 'resources/member4.jpg', color: '#2bfe52ff' },
+    { name: 'Paweethida Buadum',   id: '6609652117', role: 'Registration Page', img: 'resources/member5.jpg', color: '#f7a63dff' },
+    { name: 'Mintthita Jindarattananan', id: '6609652323', role: 'Homepage', img: 'resources/member6.jpg', color: '#e02cc5ff' },
+    { name: 'Siraphop Kitisrunya', id: '6609652349', role: 'Feedback Page', img: 'resources/member7.jpg', color: '#f3da4bff' },
+    { name: 'Tula Lakul',          id: '6709650359', role: 'Booth4 Page', img: 'resources/member8.jpg', color: 'rgba(51, 105, 242, 1)' },
+    { name: 'Chakriya Sudsaneh',   id: '6709620055', role: 'Homepage', img: 'resources/member9.jpg', color: '#2bfe52ff' },
+    { name: 'Teetapath Magroodin', id: '6709616558', role: 'Booth Directory Page', img: 'resources/member10.jpg', color: '#f7a63dff' },
   ];
+
+  const menuToggle = document.getElementById('menuToggle');
+    const nav = document.querySelector('.nav');
+
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('is-open');
+        menuToggle.classList.toggle('is-active');
+    });
 
   const wheel        = document.querySelector('.ferris-wheel-structure');
   const modal        = document.getElementById('memberModal');
@@ -30,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cabin = document.createElement('div');
     cabin.className = 'cabin';
+    cabin.style.transform = `rotate(${baseAngle}deg) translateY(-200px)`;
+
+    cabin.style.setProperty('--member-color', member.color);
     cabin.style.transform = `rotate(${baseAngle}deg) translateY(-200px)`;
 
     const memberPhoto = document.createElement('div');
@@ -91,4 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.style.display = 'none';
     }
   });
+  
 });
+

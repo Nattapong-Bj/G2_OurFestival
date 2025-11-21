@@ -83,11 +83,50 @@ body {
 
 @media (max-width:900px) {
   .logo {
-    font-size: 22px
+    font-size: 22px;
+  }
+  
+  .menu-toggle {
+    display: block !important; 
   }
 
   .nav {
-    display: none
+    display: flex; 
+    flex-direction: column; 
+    position: absolute; 
+    top: 60px; 
+    left: 0;
+    width: 100%;
+    background-color: #1a1d1f; 
+    border-top: 1px solid #333;
+    padding: 20px 0;
+    
+    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none; 
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .nav a {
+    padding: 12px 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+  }
+
+  .nav.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 }
 
@@ -286,10 +325,13 @@ body {
   width: 80px;
   height: 80px;
   background-color: #333;
-  border: 4px solid #555;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
+  filter: drop-shadow(0 0 5px var(--member-color)) 
+          drop-shadow(0 0 15px var(--member-color));
+  box-shadow: 0 0 0 3px var(--member-color); 
+  transition: box-shadow 0.3s ease, filter 0.3s ease;
 }
 
 .modal {
@@ -335,6 +377,9 @@ body {
   width: 150px;
   height: 150px;
   margin: 0 auto 1.5rem;
+  box-shadow: 0 0 0 5px var(--member-color); 
+  filter: drop-shadow(0 0 10px var(--member-color)) 
+          drop-shadow(0 0 30px var(--member-color));
 }
 
 .site-footer {
@@ -350,4 +395,23 @@ body {
 .footer-container p {
   margin: 0;
   font-size: 0.9rem;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 50; 
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
