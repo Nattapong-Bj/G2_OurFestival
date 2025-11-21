@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const members = [
     { name: 'Ariya Tangrojanakul', id: '6609520108', role: '', img: 'resources/member1.jpg' },
     { name: 'Pandhana Buranrat',   id: '6609612145', role: '', img: 'resources/member2.jpg' },
-    { name: 'sorawit tansricharoen', id: '6609650673', role: '', img: 'resources/member4.jpg' },
+    { name: 'sorawit tansricharoen', id: '6609650673', role: '', img: 'resources/member3.jpg' },
     { name: 'Nattapong Boonjeen',  id: '6609652067', role: '', img: 'resources/member4.jpg' },
     { name: 'Paweethida Buadum',   id: '6609652117', role: '', img: 'resources/member5.jpg' },
     { name: 'Mintthita Jindarattananan', id: '6609652323', role: '', img: 'resources/member6.jpg' },
     { name: 'Siraphop Kitisrunya', id: '6609652349', role: '', img: 'resources/member7.jpg' },
-    { name: 'Tula Lakul',          id: '6709650359', role: '', img: 'resources/member4.jpg' },
+    { name: 'Tula Lakul',          id: '6709650359', role: '', img: 'resources/member8.jpg' },
     { name: 'Chakriya Sudsaneh',   id: '6709620055', role: '', img: 'resources/member9.jpg' },
     { name: 'Teetapath Magroodin', id: '6709616558', role: '', img: 'resources/member10.jpg' },
   ];

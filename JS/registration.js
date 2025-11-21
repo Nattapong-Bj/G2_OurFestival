@@ -68,9 +68,30 @@ if (!provided) {
   valid = false;
 }
 
-  // ถ้าฟอร์มถูกต้องทุกช่อง
+// ถ้าฟอร์มถูกต้องทุกช่อง
   if (valid) {
     document.getElementById("success").textContent = "✅ Form submitted successfully!";//success massage เปลี่ยนข้อความได้
     this.reset();
   }
 });
+
+// โค้ด Back-end (Node.js/Express)
+// สมมติว่า database.getAllVisitors() ได้ถูกเขียนและพร้อมใช้งานแล้ว
+
+app.get('/visitor-summary', async (req, res) => {
+    try {
+        // 1. ดึงข้อมูลผู้เยี่ยมชมทั้งหมดจากฐานข้อมูล
+        const visitorsData = await database.getAllVisitors(); 
+        
+        // 2. *** ส่งข้อมูล (visitorsData) เข้าไปใน Template ***
+        //    โดยกำหนดชื่อตัวแปรใน Template เป็น 'allVisitors'
+        res.render('visitorsummary', { 
+            allVisitors: visitorsData 
+        }); 
+        
+    } catch (error) {
+        console.error("Failed to load visitor summary:", error);
+        res.status(500).send("Error loading data.");
+    }
+});
+
