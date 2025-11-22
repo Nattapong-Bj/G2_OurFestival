@@ -34,10 +34,18 @@ document.getElementById("registrationForm").addEventListener("submit", function 
     document.getElementById("lastname-error").textContent = "คุณยังไม่ได้กรอกนามสกุล";
     valid = false;
   }
+
   if (email === "") {
     document.getElementById("email-error").textContent = "คุณยังไม่ได้กรอกอีเมล";
     valid = false;
+  } else if (!email.endsWith("@dome.tu.ac.th")) {
+    // เงื่อนไขที่ 2: อีเมลมีค่าแต่โดเมนไม่ถูกต้อง
+    document.getElementById("email-error").textContent = "กรุณากรอกอีเมล @dome.tu.ac.th เท่านั้น";
+    valid = false;
   }
+
+
+
   if (age === "") {
     document.getElementById("age-error").textContent = "คุณยังไม่ได้กรอกอายุ";
     valid = false;
@@ -46,7 +54,7 @@ document.getElementById("registrationForm").addEventListener("submit", function 
     document.getElementById("phone-error").textContent = "คุณยังไม่ได้กรอกหมายเลขโทรศัพท์";
     valid = false;
   } else if (!/^\d{10}$/.test(phone)) {
-    document.getElementById("phone-error").textContent = "คุณกรอกหมาเลขโทรศัพท์ไม่ครบ 10 หมายเลข";
+    document.getElementById("phone-error").textContent = "คุณกรอกหมายเลขโทรศัพท์ไม่ครบ 10 หมายเลข";
     valid = false;
   }
   if (!gender) {
