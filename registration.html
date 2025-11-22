@@ -96,20 +96,21 @@
         <label for="participation-date">วันที่เข้าร่วมกิจกรรม:</label>
         <div class="radio-group">
           <input type="date" id="participation_date" name="participation_date">
-          <div id="date-error" class="error-message"></div> <!-- แสดง error -->
+        </div>
+        <div id="date-error" class="error-message"></div> <!-- แสดง error -->
 
-          <!-- สร้างกล่องยืนยันว่าตกลง -->
-          <label><input id="provided" name="provided" type="checkbox">
-            ข้าพเจ้าขอรับรองว่าข้อมูลที่ให้ไว้ข้างต้นเป็นความจริงและถูกต้อง</label>
-          <div id="provided-error" class="error-message"></div>
+        <!-- สร้างกล่องยืนยันว่าตกลง -->
+        <label><input id="provided" name="provided" type="checkbox">
+          ข้าพเจ้าขอรับรองว่าข้อมูลที่ให้ไว้ข้างต้นเป็นความจริงและถูกต้อง</label>
+        <div id="provided-error" class="error-message"></div>
 
-          <!-- ส่งแบบฟอร์ม -->
-          <button type="submit">ส่งแบบฟอร์ม</button>
-          <div id="success" class="success-message"></div> <!-- แสดงข้อความ success เมื่อส่งฟอร์มสำเร็จ -->
-    </form>
+        <!-- ส่งแบบฟอร์ม -->
+        <button type="submit" value="Submit"> ส่งแบบฟอร์ม</button>
+        <div id="success" class="success-message"></div> <!-- แสดงข้อความ success เมื่อส่งฟอร์มสำเร็จ -->
+     
     <a href="php/viewregistration.php" class="view-button">ดูข้อมูลผู้ลงทะเบียน</a>
-
-
+ </fieldset>
+    </form>
   </main>
 
 
