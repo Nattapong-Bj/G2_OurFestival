@@ -1,6 +1,14 @@
-document.getElementById("registrationForm").addEventListener("submit", function(event) {
+document.getElementById("registrationForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
+  // ขีด3ขีด
+  const menuToggle = document.getElementById('menuToggle');
+  const nav = document.querySelector('.nav');
+
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('is-open');
+    menuToggle.classList.toggle('is-active');
+  });
   // ล้างข้อความ error และ success
   document.querySelectorAll(".error-message").forEach(e => e.textContent = "");
   document.getElementById("success").textContent = "";
@@ -22,7 +30,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     document.getElementById("fullname-error").textContent = "คุณยังไม่ได้กรอกชื่อจริง";
     valid = false;
   }
-    if (lastname === "") {
+  if (lastname === "") {
     document.getElementById("lastname-error").textContent = "คุณยังไม่ได้กรอกนามสกุล";
     valid = false;
   }
@@ -55,7 +63,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
   } else {
     const selectedDate = new Date(participationDate);
     const today = new Date();
-    today.setHours(0,0,0,0);
+    today.setHours(0, 0, 0, 0);
     if (selectedDate < today) {
       document.getElementById("date-error").textContent = "คุณไม่สามารถเลือกวันที่ผ่านไปแล้วได้";
       valid = false;
@@ -78,20 +86,20 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     interests.forEach(i => formData.append('interests[]', i));
     formData.append('participation_date', participationDate);
 
-  fetch('php/saveregistration.php', {
-    method: 'POST',
-    body: formData
-  })
+    fetch('php/saveregistration.php', {
+        method: 'POST',
+        body: formData
+      })
 
-    .then(res => res.json())
-    .then(data => {
-      if (data.status === 'success') {
-        document.getElementById("success").textContent = "แบบฟอร์มของคุณถูกบันทึกแล้ว";
-        this.reset();
-      } else {
-        alert('เกิดข้อผิดพลาด: ' + (data.message || 'Cannot save data'));
-      }
-    })
-    .catch(err => console.error(err));
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === 'success') {
+          document.getElementById("success").textContent = "แบบฟอร์มของคุณถูกบันทึกแล้ว";
+          this.reset();
+        } else {
+          alert('เกิดข้อผิดพลาด: ' + (data.message || 'Cannot save data'));
+        }
+      })
+      .catch(err => console.error(err));
   }
 });
