@@ -1,4 +1,4 @@
-// Feedback.js (เก็บบน server เท่านั้น — ไม่ดาวน์โหลดไฟล์หลายอัน)
+// Feedback.js (ปรับ path ให้ตรง C:/xampp/htdocs/CS100/php/)
 (function () {
   const STORAGE_KEY = "feedback_list_v1";
   const statusEl = document.getElementById("feedbackStatus");
@@ -12,14 +12,17 @@
   }
 
   async function loadExistingList() {
+    // อ่านจาก /CS100/php/Feedback.json (ถ้าไฟล์มีอยู่บน server)
     try {
-      const resp = await fetch('/Feedback.json', { cache: 'no-store' });
+      const resp = await fetch('/CS100/php/Feedback.json', { cache: 'no-store' });
       if (resp.ok) {
         const data = await resp.json();
         if (Array.isArray(data)) return data.slice();
         if (data && typeof data === 'object') return [data];
       }
-    } catch (e) {}
+    } catch (e) { /* ignore */ }
+
+    // fallback: localStorage
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
@@ -27,6 +30,8 @@
         if (Array.isArray(parsed)) return parsed.slice();
       }
     } catch (e) {}
+
+    // fallback: user file input
     try {
       const fileInput = document.getElementById('existingFileInput');
       if (fileInput && fileInput.files && fileInput.files.length > 0) {
@@ -36,16 +41,19 @@
         if (parsed && typeof parsed === 'object') return [parsed];
       }
     } catch (e) {}
+
     return [];
   }
 
   async function sendToServerSilent(mergedList) {
     try {
-      await fetch('/save-feedback.php', {
+      const resp = await fetch('/CS100/php/save-feedback.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(mergedList)
       });
+      // debug: log server response (DevTools console)
+      try { const js = await resp.json(); console.log('save-feedback response', js); } catch (e) {}
     } catch (e) {
       console.error("Server save failed:", e);
     }
@@ -60,17 +68,12 @@
   const fileInput = document.getElementById('existingFileInput');
   const loadBtn = document.getElementById('loadExistingBtn');
 
-  if (loadBtn && fileInput) {
-    loadBtn.addEventListener('click', () => fileInput.click());
-  }
-
-  if (fileInput) {
-    fileInput.addEventListener('change', () => {
-      if (fileInput.files && fileInput.files.length > 0) {
-        showTemporary("ไฟล์ถูกเลือกแล้ว — จะรวมเมื่อกดส่ง", 2000);
-      }
-    });
-  }
+  if (loadBtn && fileInput) loadBtn.addEventListener('click', () => fileInput.click());
+  if (fileInput) fileInput.addEventListener('change', () => {
+    if (fileInput.files && fileInput.files.length > 0) {
+      showTemporary("ไฟล์ถูกเลือกแล้ว — จะรวมเมื่อกดส่ง", 2000);
+    }
+  });
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -103,24 +106,16 @@
     let mergedList = [];
     try {
       mergedList = await loadExistingList();
-    } catch (e) {
-      mergedList = [];
-    }
+    } catch (e) { mergedList = []; }
 
-    // append ทุกครั้ง (ไม่แทนที่)
+    // append ทุกครั้ง
     mergedList.push(newFeedback);
 
-    // เก็บใน localStorage (สำรอง)
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(mergedList));
-    } catch (e) {}
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(mergedList)); } catch (e) {}
 
-    // **เอาส่วนดาวน์โหลดออก** — ไม่ดาวน์โหลดเป็นไฟล์ใหม่บนเครื่องผู้ใช้อีกต่อไป
-
-    // ส่งไป server ให้ PHP เขียนลง Feedback.json
+    // ส่งไป PHP ที่ /CS100/php/save-feedback.php
     await sendToServerSilent(mergedList);
 
-    // ข้อความต้นฉบับ
     showTemporary("✅ ขอบคุณสำหรับความคิดเห็นของคุณ!", 3000);
 
     this.reset();

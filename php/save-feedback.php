@@ -1,5 +1,5 @@
 <?php
-// save-feedback.php - append mode
+// save-feedback.php (XAMPP) - append mode
 header('Content-Type: application/json; charset=utf-8');
 
 $FEEDBACK_FILE = __DIR__ . '/Feedback.json';
@@ -79,14 +79,10 @@ if (file_exists($FEEDBACK_FILE)) {
     }
 }
 
-// <<< APPEND MODE: เพิ่มรายการใหม่ต่อท้าย โดยไม่แทนที่ >>>
+// append new items
 $merged = array_merge($existing, $validItems);
 
-// optional: limit size to last N entries (uncomment if needed)
-// $max = 5000;
-// if (count($merged) > $max) $merged = array_slice($merged, -$max);
-
-// write atomic: tmp + rename
+// atomic write (tmp + rename)
 $tmpFile = $FEEDBACK_FILE . $TMP_SUFFIX;
 $dir = dirname($FEEDBACK_FILE);
 if (!is_dir($dir)) {
