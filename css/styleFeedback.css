@@ -265,12 +265,5 @@ button[type="submit"]:active {
   h2 {
     font-size: 1.25rem;
   }
-  #feedbackStatus {
-  transition: opacity 180ms ease;
-  opacity: 0;
-}
-#feedbackStatus.show {
-  opacity: 1;
-}
-
+  
 }
