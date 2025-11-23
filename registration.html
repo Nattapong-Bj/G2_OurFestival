@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+
+  <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styleRegistration.css">
+</head>
+
+<body>
+
+  <!-- Header with Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <div class="logo">
+          <h4>Festival of Memories</h4>
+        </div>
+      </div>
+      <!-- ขีดสามขีด -->
+      <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Homepage</a>
+        <a href="Directory.html">Directory</a>
+        <a href="registration.html">Register</a>
+        <a href="Feedback.html">Feedback</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h2>แบบฟอร์มลงทะเบียนผู้เข้าร่วมงาน</h2>
+    <form id="registrationForm" action="php/saveregistration.php" method="POST" novalidate>
+      <fieldset>
+        <legend>Personal Information</legend>
+        <!-- ข้อมูลนักศึกษา -->
+
+        <!-- ชื่อจริง -->
+        <label for="fullname">ชื่อจริง:</label>
+        <div class="input-group">
+          <input type="text" id="fullname" name="fullname" placeholder="กรอกชื่อจริง" required></div>
+        <div id="fullname-error" class="error-message"></div> <!-- แสดง error -->
+        <!-- นามสกุล -->
+        <label for="lastname">นามสกุล:</label>
+        <div class="input-group">
+          <input type="text" id="lastname" name="lastname" placeholder="กรอกนามสกุล" required></div>
+        <div id="lastname-error" class="error-message"></div> <!-- แสดง error -->
+        <!-- อีเมล -->
+        <label for="email">อีเมล:</label>
+        <div class="input-group">
+          <input type="text" id="email" name="email" placeholder="เช่น firstname.lastname@dome.tu.ac.th" required></div>
+        <div id="email-error" class="error-message"></div> <!-- แสดง error -->
+
+        <!-- อายุ -->
+        <label for="age">อายุ:</label>
+        <div class="input-group">
+          <input type="number" placeholder="กรอกอายุ" id="age" name="age" min="1" max="100" required></div>
+        <div id="age-error" class="error-message"></div> <!-- แสดง error -->
+
+        <!-- เบอร์โทรศัพท์ -->
+        <label for="phone">เบอร์โทรศัพท์:</label>
+        <div class="input-group">
+          <input type="tel" placeholder="เช่น 093xxxxxxx" id="phone" name="phone" maxlength="10" required></div>
+        <div id="phone-error" class="error-message"></div> <!-- แสดง error -->
+        <!-- เพศ -->
+        <label style="margin-top: 1rem;">เพศ:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="ชาย" required> ชาย </label>
+          <label><input type="radio" name="gender" value="หญิง"> หญิง </label>
+          <label><input type="radio" name="gender" value="ไม่ระบุ"> ไม่ระบุ </label>
+        </div>
+        <div id="gender-error" class="error-message"></div>
+
+
+        <!-- บูธที่สนใจ -->
+        <label style="margin-top: 1rem;">บูทที่สนใจ:</label>
+        <div class="radio-group">
+          <input type="checkbox" name="interests[]" value="บูทเครื่องเล่น">บูทเครื่องเล่น<br>
+          <input type="checkbox" name="interests[]" value="บูทขายของเล่น">บูทขายของเล่น<br>
+          <input type="checkbox" name="interests[]" value="บูทอาหารคาว">บูทอาหารคาว<br>
+          <input type="checkbox" name="interests[]" value="บูทอาหารหวาน">บูทอาหารหวาน<br>
+
+        </div>
+        <div id="interests-error" class="error-message"></div> <!-- แสดง error -->
+
+        <!-- วันที่เข้าร่วมกิจกรรม -->
+
+        <label for="participation-date">วันที่เข้าร่วมกิจกรรม:</label>
+        <div class="radio-group">
+          <input type="date" id="participation_date" name="participation_date">
+        </div>
+        <div id="date-error" class="error-message"></div> <!-- แสดง error -->
+
+        <!-- สร้างกล่องยืนยันว่าตกลง -->
+        <label><input id="provided" name="provided" type="checkbox">
+          ข้าพเจ้าขอรับรองว่าข้อมูลที่ให้ไว้ข้างต้นเป็นความจริงและถูกต้อง</label>
+        <div id="provided-error" class="error-message"></div>
+
+        <!-- ส่งแบบฟอร์ม -->
+        <button type="submit" value="Submit"> ส่งแบบฟอร์ม</button>
+        <div id="success" class="success-message"></div> <!-- แสดงข้อความ success เมื่อส่งฟอร์มสำเร็จ -->
+
+        <a href="php/viewregistration.php" class="view-button">ดูข้อมูลผู้ลงทะเบียน</a>
+      </fieldset>
+    </form>
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p>&copy; 2025 Festival of Memories | Designed by G2 Team</p>
+    </div>
+  </footer>
+  <script src="JS/registration.js"></script>
+</body>
+
+</html>

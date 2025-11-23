@@ -1,4 +1,4 @@
-// Feedback.js (ครบทุกฟีเจอร์ + แก้บั๊ก link สี)
+// Feedback.js (ครบทุกฟิลด์ + ส่งไป XAMPP)
 (function () {
   const STORAGE_KEY = "feedback_list_v1";
   const statusEl = document.getElementById("feedbackStatus");
@@ -8,12 +8,9 @@
     statusEl.style.display = "block";
     statusEl.textContent = message;
     clearTimeout(showTemporary._t);
-    showTemporary._t = setTimeout(() => {
-      if (statusEl) statusEl.textContent = "";
-    }, ms);
+    showTemporary._t = setTimeout(() => { if (statusEl) statusEl.textContent = ""; }, ms);
   }
 
-  // โหลดข้อมูลเก่าจาก JSON/server/localStorage
   async function loadExistingList() {
     try {
       const resp = await fetch("http://localhost/CS100/php/Feedback.json", { cache: "no-store" });
@@ -32,7 +29,6 @@
     return [];
   }
 
-  // ส่งข้อมูลรวมไปเก็บในไฟล์ PHP
   async function sendToServerSilent(mergedList) {
     try {
       const resp = await fetch("http://localhost/CS100/php/save-feedback.php", {
@@ -52,21 +48,22 @@
 
   const form = document.getElementById("feedbackForm");
 
-  // เมื่อ submit แบบฟอร์ม
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
     statusEl.textContent = "";
 
+    // ฟิลด์หลัก
     const fname = document.getElementById("fname").value.trim();
     const lname = document.getElementById("lname").value.trim();
     const studentId = document.getElementById("studentId").value.trim();
     const year = document.getElementById("year").value;
     const email = document.getElementById("email").value.trim();
 
+    // ฟิลด์ใหม่
     const satisfaction = document.querySelector('input[name="satisfaction"]:checked')?.value || "";
     const comment = document.getElementById("comment").value.trim();
 
-    // ตรวจอีเมล
+    // Validate email
     if (!email.endsWith("@dome.tu.ac.th")) {
       showTemporary("⚠️ กรุณาใช้อีเมล @dome.tu.ac.th เท่านั้น");
       return;
@@ -95,16 +92,13 @@
 
     mergedList.push(newFeedback);
 
-    // เก็บใน LocalStorage
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(mergedList));
     } catch (e) {}
 
-    // ส่งไป server
     await sendToServerSilent(mergedList);
 
     showTemporary("✅ ขอบคุณสำหรับความคิดเห็นของคุณ!", 3000);
     form.reset();
   });
-
 })();
