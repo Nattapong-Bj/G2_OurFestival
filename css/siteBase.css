@@ -15,6 +15,7 @@ body {
   color: #fff;
 }
 
+/* --- ส่วนของ Header/Navigation --- */
 .site-header {
   position: sticky;
   top: 0;
@@ -23,7 +24,7 @@ body {
   backdrop-filter: blur(4px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
-
+ 
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -32,44 +33,130 @@ body {
   align-items: center;
   justify-content: space-between
 }
-
+ 
 .brand {
   display: flex;
   align-items: center;
   gap: 14px
 }
-
+ 
 .logo {
   font-weight: 900;
   font-size: 26px;
   letter-spacing: 0.2px;
   color: #fff
 }
-
+ 
+.logo h4 {
+  background: linear-gradient(
+    to right,
+    #9f9f9f 0%,
+    white 10%,
+    #868686 20%
+  );
+  background-size: 300px 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shift 4s linear infinite;
+}
+ 
+@keyframes shift {
+  0%   { background-position: -150px 0; }
+  100% { background-position: 300px 0; }
+}
+ 
 .nav {
   display: flex;
   gap: 22px;
   align-items: center
 }
-
+ 
 .nav a {
   color: #dfe6e6;
   text-decoration: none;
   font-weight: 500
 }
-
+ 
 .nav a:hover {
   text-decoration: underline
 }
-
+ 
 @media (max-width:900px) {
   .logo {
     font-size: 22px
   }
+  
+  .nav {
+    display: none /* ซ่อนเมนูสำหรับหน้าจอขนาดเล็ก */
+  }
+}
+
+@media (max-width:900px) {
+  .logo {
+    font-size: 22px;
+  }
+  
+  .menu-toggle {
+    display: block !important; 
+  }
 
   .nav {
-    display: none
+    display: flex; 
+    flex-direction: column; 
+    position: absolute; 
+    top: 60px; 
+    left: 0;
+    width: 100%;
+    background-color: #1a1d1f; 
+    border-top: 1px solid #333;
+    padding: 20px 0;
+    
+    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none; 
+    transition: transform 0.3s ease, opacity 0.3s ease;
   }
+  
+  .nav a {
+    padding: 12px 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+  }
+
+  .nav.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 50; 
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Sections used by homepage; safe to keep for consistency */
@@ -111,5 +198,18 @@ body {
 .cabin .member-photo { width: 100%; height: 100%; animation: rotate-cabin 45s linear infinite; transition: transform 0.3s ease; }
 .cabin:hover .member-photo { transform: scale(1.15); }
 
-.site-footer { border-top: 1px solid rgba(255,255,255,0.06); margin-top: 40px; }
-.site-footer .container { justify-content: center; }
+/* --- ส่วนของ Footer (แถบล่าง) --- */
+.site-footer {
+  background-color: #111;     
+  color: #ddd;               
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 4rem;
+  font-family: 'Montserrat', sans-serif;
+  border-top: 1px solid #333; 
+}
+ 
+.footer-container p {
+  margin: 0;
+  font-size: 0.9rem;
+}
