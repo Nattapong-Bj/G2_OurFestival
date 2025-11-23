@@ -15,7 +15,7 @@ if (!is_array($registrations)) $registrations = [];
         <head>
         <meta charset="UTF-8">
             <title>ข้อมูลผู้ลงทะเบียนทั้งหมด</title>
-            <link rel="stylesheet" href="../php/CSS/showregistration.css">
+            <link rel="stylesheet" href="../css/showregistration.css">
         </head>
         <body>
             <h2>ข้อมูลผู้ลงทะเบียนเข้าร่วมงาน</h2>
