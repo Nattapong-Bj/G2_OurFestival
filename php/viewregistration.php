@@ -17,6 +17,8 @@ if (!is_array($registrations)) $registrations = [];
     <meta charset="UTF-8">
     <title>ข้อมูลผู้ลงทะเบียนทั้งหมด</title>
     <link rel="stylesheet" href="../css/showregistration.css">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -25,8 +27,11 @@ if (!is_array($registrations)) $registrations = [];
     <header class="site-header">
         <div class="container">
             <div class="brand">
-                <div class="logo">Festival</div>
+                <div class="logo">
+                    <h4>Festival of Memories</h4>
+                </div>
             </div>
+
             <!-- ขีดสามขีด -->
             <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">
                 <span class="bar"></span>
