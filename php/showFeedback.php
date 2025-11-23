@@ -26,7 +26,6 @@ function formatThaiTime($isoTime)
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="th">
 
