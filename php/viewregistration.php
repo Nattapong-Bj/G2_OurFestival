@@ -53,7 +53,7 @@ if (!is_array($registrations)) $registrations = [];
             <th>อายุ</th>
             <th>เบอร์โทรศัพท์</th>
             <th>เพศ</th>
-            <th>บูธที่สนใจ</th>
+            <th>บูทที่สนใจ</th>
             <th>วันที่เข้าร่วม</th>
             <th>เวลาที่ลงทะเบียน</th>
         </tr>
