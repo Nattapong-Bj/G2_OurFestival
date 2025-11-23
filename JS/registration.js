@@ -1,14 +1,17 @@
-document.getElementById("registrationForm").addEventListener("submit", function (event) {
+// เมนูขีดสามขีด
+const menuToggle = document.getElementById('menuToggle');
+const nav = document.querySelector('.nav');
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('is-open');
+  menuToggle.classList.toggle('is-active');
+});
+
+// Form submission
+const form = document.getElementById("registrationForm");
+
+form.addEventListener("submit", function(event) {
   event.preventDefault();
 
-  // ขีด3ขีด
-  const menuToggle = document.getElementById('menuToggle');
-  const nav = document.querySelector('.nav');
-
-  menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('is-open');
-    menuToggle.classList.toggle('is-active');
-  });
   // ล้างข้อความ error และ success
   document.querySelectorAll(".error-message").forEach(e => e.textContent = "");
   document.getElementById("success").textContent = "";
@@ -25,89 +28,46 @@ document.getElementById("registrationForm").addEventListener("submit", function 
   const participationDate = document.getElementById("participation_date").value.trim();
   const provided = document.getElementById("provided").checked;
 
-  // Validation (เหมือนเดิม)
-  if (fullname === "") {
-    document.getElementById("fullname-error").textContent = "คุณยังไม่ได้กรอกชื่อจริง";
-    valid = false;
-  }
-  if (lastname === "") {
-    document.getElementById("lastname-error").textContent = "คุณยังไม่ได้กรอกนามสกุล";
-    valid = false;
-  }
-
+  // Validation
+  if (fullname === "") { document.getElementById("fullname-error").textContent = "กรุณากรอกชื่อจริง"; valid = false; }
+  if (lastname === "") { document.getElementById("lastname-error").textContent = "กรุณากรอกนามสกุล"; valid = false; }
   if (email === "") {
-    document.getElementById("email-error").textContent = "คุณยังไม่ได้กรอกอีเมล";
-    valid = false;
-  } else if (!email.endsWith("@dome.tu.ac.th")) {
-    // เงื่อนไขที่ 2: อีเมลมีค่าแต่โดเมนไม่ถูกต้อง
-    document.getElementById("email-error").textContent = "กรุณากรอกอีเมล @dome.tu.ac.th เท่านั้น";
-    valid = false;
+    document.getElementById("email-error").textContent = "กรุณากรอกอีเมล"; valid = false;
+  } else if (!/^[\w.-]+@dome\.tu\.ac\.th$/.test(email)) {
+    document.getElementById("email-error").textContent = "กรุณากรอกอีเมล @dome.tu.ac.th เท่านั้น"; valid = false;
   }
-
-
-
-  if (age === "") {
-    document.getElementById("age-error").textContent = "คุณยังไม่ได้กรอกอายุ";
-    valid = false;
-  }
+  if (age === "") { document.getElementById("age-error").textContent = "กรุณากรอกอายุ"; valid = false; }
   if (phone === "") {
-    document.getElementById("phone-error").textContent = "คุณยังไม่ได้กรอกหมายเลขโทรศัพท์";
-    valid = false;
+    document.getElementById("phone-error").textContent = "กรุณากรอกหมายเลขโทรศัพท์"; valid = false;
   } else if (!/^\d{10}$/.test(phone)) {
-    document.getElementById("phone-error").textContent = "คุณกรอกหมายเลขโทรศัพท์ไม่ครบ 10 หมายเลข";
-    valid = false;
+    document.getElementById("phone-error").textContent = "กรุณากรอกหมายเลขโทรศัพท์ 10 หลัก"; valid = false;
   }
-  if (!gender) {
-    document.getElementById("gender-error").textContent = "คุณยังไม่ได้กรอกเพศ";
-    valid = false;
-  }
-  if (interests.length === 0) {
-    document.getElementById("interests-error").textContent = "คุณยังไม่ได้กรอกบูธที่สนใจ";
-    valid = false;
-  }
-  if (participationDate === "") {
-    document.getElementById("date-error").textContent = "คุณยังไม่ได้กรอกวันที่ต้องการจะเข้าร่วม";
-    valid = false;
-  } else {
+  if (!gender) { document.getElementById("gender-error").textContent = "กรุณาเลือกเพศ"; valid = false; }
+  if (interests.length === 0) { document.getElementById("interests-error").textContent = "กรุณาเลือกบูทที่สนใจ"; valid = false; }
+  if (participationDate === "") { document.getElementById("date-error").textContent = "กรุณาเลือกวันที่เข้าร่วม"; valid = false; } 
+  else {
     const selectedDate = new Date(participationDate);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    if (selectedDate < today) {
-      document.getElementById("date-error").textContent = "คุณไม่สามารถเลือกวันที่ผ่านไปแล้วได้";
-      valid = false;
+    const today = new Date(); today.setHours(0,0,0,0);
+    if (isNaN(selectedDate.getTime()) || selectedDate < today) {
+      document.getElementById("date-error").textContent = "วันที่ต้องไม่เป็นอดีต"; valid = false;
     }
   }
-  if (!provided) {
-    document.getElementById("provided-error").textContent = "คุณต้องยืนยันความถูกต้องของข้อมูลที่กรอกเข้ามา";
-    valid = false;
-  }
+  if (!provided) { document.getElementById("provided-error").textContent = "คุณต้องยืนยันความถูกต้องของข้อมูล"; valid = false; }
 
-  // ถ้าฟอร์มถูกต้อง
+  // ส่ง form ถ้า valid
   if (valid) {
-    const formData = new FormData();
-    formData.append('fullname', fullname);
-    formData.append('lastname', lastname);
-    formData.append('email', email);
-    formData.append('age', age);
-    formData.append('phone', phone);
-    formData.append('gender', gender.value);
-    interests.forEach(i => formData.append('interests[]', i));
-    formData.append('participation_date', participationDate);
+    const formData = new FormData(form);
 
-    fetch('php/saveregistration.php', {
-        method: 'POST',
-        body: formData
-      })
-
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === 'success') {
-          document.getElementById("success").textContent = "แบบฟอร์มของคุณถูกบันทึกแล้ว";
-          this.reset();
-        } else {
-          alert('เกิดข้อผิดพลาด: ' + (data.message || 'Cannot save data'));
-        }
-      })
-      .catch(err => console.error(err));
+    fetch('php/saveregistration.php', { method: 'POST', body: formData })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status === 'success') {
+        document.getElementById("success").textContent = "แบบฟอร์มของคุณถูกบันทึกแล้ว";
+        form.reset();
+      } else {
+        alert('เกิดข้อผิดพลาด: ' + (data.message || 'ไม่สามารถบันทึกข้อมูลได้'));
+      }
+    })
+    .catch(err => console.error(err));
   }
 });
