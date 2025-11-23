@@ -345,7 +345,6 @@ button[type="submit"]:active {
   h2 {
     font-size: 1.25rem;
   }
-<<<<<<< HEAD
 
   #feedbackStatus {
     transition: opacity 180ms ease;
@@ -355,7 +354,3 @@ button[type="submit"]:active {
     opacity: 1;
   }
 }
-=======
-  
-}
->>>>>>> 919935da827158cde006459347917df16697b420
