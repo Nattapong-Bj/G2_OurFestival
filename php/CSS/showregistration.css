@@ -1,21 +1,114 @@
-body 
-{
+ิbody {
     font-family: 'Montserrat', sans-serif;
     padding: 20px;
+    color: #333;
+  flex: 1;
+  padding: 4rem 2rem;
 }
+
+html {
+    background-color: #0f1112;
+}
+
+/* ------------------- animation Styles ---------------- */
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(to right,
+            #9f9f9f 0%,
+            white 10%,
+            #868686 20%);
+    background-size: 300px 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shift 4s linear infinite;
+}
+@keyframes shift {
+  0% {
+    background-position: -150px 0;
+  }
+
+  100% {
+    background-position: 300px 0;
+  }
+}
+
+/* ------------------- Form Styles ---------------- */
 table {
     border-collapse: collapse;
+    /* ทำให้เส้นขอบติดกัน */
     width: 100%;
     margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.811);
+    /* เพิ่มเงาให้ตารางดูมีมิติ */
+    border-radius: 18px;
+    /* ทำให้มุมตารางมนเล็กน้อย */
+    overflow: hidden;
+    /* ซ่อนส่วนเกินเมื่อมี border-radius */
+
 }
-table, th, td {
+
+table,
+th,
+td {
     border: 1px solid #555;
 }
-th, td {
-    padding: 10px;
-    text-align: left;}
-th 
-{ 
-    background: #333;
+
+th,
+td {
+    padding: 12px 15px;
+    /* เพิ่ม padding ให้มีพื้นที่มากขึ้น */
+    text-align: left;
+    border-bottom: 1px solid #555;
+    /* เส้นแบ่งแถว */
+}
+
+/* สไตล์สำหรับหัวตาราง (Thead) */
+thead th {
+    background-color: #333;
+    /* พื้นหลังสีดำเข้ม */
     color: white;
-    }
+    /* ตัวอักษรสีขาว */
+    font-weight: bold;
+    text-transform: uppercase;
+    /* ทำให้ตัวอักษรเป็นตัวพิมพ์ใหญ่ */
+    letter-spacing: 0.5px;
+    /* เพิ่มระยะห่างตัวอักษรเล็กน้อย */
+    border-bottom: 2px solid #555;
+    /* เส้นใต้หัวตารางที่หนาขึ้น */
+}
+
+/* ----------  ปรับสีในแถว ------------------ */
+tbody tr {
+    background-color: #ffffff;
+
+}
+
+tbody tr:nth-child(even) {
+    background-color: #D9D9D9;
+    /* แถวคู่เป็นสีเทาอ่อน */
+}
+
+tbody tr:hover {
+    background-color: #919191;
+    /* สีเทาเข้มขึ้นเมื่อเมาส์ชี้ */
+    cursor: pointer;
+    /* เปลี่ยน cursor เป็น pointer */
+}
+
+/* สไตล์สำหรับคอลัมน์ # (ตัวเลขลำดับ) */
+td:first-child,
+th:first-child {
+    width: 50px;
+    /* กำหนดความกว้างสำหรับคอลัมน์ลำดับ */
+    text-align: center;
+    /* จัดตำแหน่งตรงกลาง */
+}
+
+/* ปรับ border-bottom ของแถวสุดท้ายใน tbody */
+tbody tr:last-child td {
+    border-bottom: none;
+}

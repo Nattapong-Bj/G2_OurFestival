@@ -18,10 +18,10 @@ if (!is_array($registrations)) $registrations = [];
             <link rel="stylesheet" href="../php/CSS/showregistration.css">
         </head>
         <body>
-            <h2>ข้อมูลผู้ลงทะเบียนทั้งหมด</h2>
+            <h2>ข้อมูลผู้ลงทะเบียนเข้าร่วมงาน</h2>
                 <table>
                 <tr>
-                <th>#</th>
+                <th>ที่</th>
                 <th>ชื่อจริง</th>
                 <th>นามสกุล</th>
                 <th>อีเมล</th>
