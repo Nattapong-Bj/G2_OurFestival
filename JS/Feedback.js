@@ -49,7 +49,13 @@
       console.error("Server save failed:", e);
     }
   }
+   const menuToggle = document.getElementById('menuToggle');
+    const nav = document.querySelector('.nav');
 
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('is-open');
+        menuToggle.classList.toggle('is-active');
+    });
   const form = document.getElementById("feedbackForm");
 
   // เมื่อ submit แบบฟอร์ม

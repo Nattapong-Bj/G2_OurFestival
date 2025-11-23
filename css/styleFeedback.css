@@ -51,7 +51,17 @@ body {
   letter-spacing: 0.2px;
   color: #fff;
 }
-
+.logo h4 {
+  background: linear-gradient(to right,
+      #9f9f9f 0%,
+      white 10%,
+      #868686 20%);
+  background-size: 300px 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shift 4s linear infinite;
+}
 .nav {
   display: flex;
   gap: 22px;
@@ -353,4 +363,46 @@ button[type="submit"]:active {
   #feedbackStatus.show {
     opacity: 1;
   }
+    
+/* ------------- ขีด3ขีด --------------- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 50;
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.menu-toggle.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg); 
+}
+@media (max-width:900px) {
+  .menu-toggle {
+    display: block !important;
+  }
+
+  /* ... เมนู (nav) แบบซ่อน/โชว์ ... */
+
+  .menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+} 
 }
