@@ -4,6 +4,7 @@
   --card-bg: #1a1d1f;
   --border-color: rgba(255, 255, 255, 0.1);
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,58 +22,93 @@ body {
 
 /* --------- Header Styles -------------- */
 .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 40;
-    background: linear-gradient(180deg, rgba(8, 9, 10, 0.9), rgba(8, 9, 10, 0.75));
-    backdrop-filter: blur(4px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  position: sticky;
+
+  top: 0;
+
+  z-index: 40;
+
+  background: linear-gradient(180deg, rgba(8, 9, 10, 0.9), rgba(8, 9, 10, 0.75));
+
+  backdrop-filter: blur(4px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 18px 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between
+   max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 18px 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between
 }
 
 .brand {
-    display: flex;
-    align-items: center;
-    gap: 14px
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px
 }
 
 .logo {
-    font-weight: 900;
-    font-size: 26px;
-    letter-spacing: 0.2px;
-    color: #fff
+   font-weight: 900;
+
+  font-size: 26px;
+
+  letter-spacing: 0.2px;
+
+  color: #fff
 }
 
 .nav {
-    display: flex;
-    gap: 22px;
-    align-items: center
+  display: flex;
+  gap: 22px;
+  align-items: center;
 }
 
 .nav a {
-    color: #dfe6e6;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
+  color: #dfe6e6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .nav a:hover {
-    text-decoration: underline;
-    color: #fff;
+  text-decoration: underline;
+  color: #ffffff;
 }
+
 .nav a[aria-current="page"] {
   color: #fff;
   text-decoration: underline;
 }
 
+/* ------------- ขีด3ขีด --------------- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 50;
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
 
 /* ------------- Main Content --------------- */
@@ -80,16 +116,15 @@ main {
   flex: 1;
   padding: 4rem 2rem;
 }
+
 h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
-  background: linear-gradient(
-    to right,
-    #9f9f9f 0%,
-    white 10%,
-    #868686 20%
-  );
+  background: linear-gradient(to right,
+      #9f9f9f 0%,
+      white 10%,
+      #868686 20%);
   background-size: 300px 100%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -98,31 +133,48 @@ h2 {
 }
 
 @keyframes shift {
-  0%   { background-position: -150px 0; }
-  100% { background-position: 300px 0; }
+  0% {
+    background-position: -150px 0;
+  }
+
+  100% {
+    background-position: 300px 0;
+  }
 }
 
 fieldset {
-    padding: 28px;
-    border-color: #dadde7;
+  padding: 28px;
+  border-color: #dadde7;
 
 }
 
 /* Footer */
+
 .site-footer {
-  background-color: #111;
-  color: #ddd;
+
+  background-color: #111;     
+
+  color: #ddd;               
+
   text-align: center;
+
   padding: 1.5rem 0;
-  margin-top: auto;
-  border-top: 1px solid #333;
-}
 
-.site-footer p {
+  margin-top: 4rem;
+
+  font-family: 'Montserrat', sans-serif;
+
+  border-top: 1px solid #333; 
+
+}
+ 
+.footer-container p {
+
   margin: 0;
-  font-size: 0.9rem;
-}
 
+  font-size: 0.9rem;
+
+}
 /* ------------------- Form Styles ---------------- */
 #registrationForm {
   max-width: 600px;
@@ -152,30 +204,32 @@ select {
 }
 
 
-/* -------------- Input Data --------------*/
-.input-group{
- margin-bottom: 1.5rem;
+/* -------------- Input Buttons --------------*/
+.input-group {
+  margin-bottom: 1.5rem;
   padding: 1rem;
   background: var(--bg);
   border-radius: 8px;
   border: 1px solid var(--border-color);
 }
+
 /* ปรับ input ภายในกลุ่มนี้ไม่ให้มี padding และ border ซ้ำซ้อน */
 .input-group input[type="text"],
 .input-group input[type="number"],
 .input-group input[type="tel"] {
-    width: 100%;
-    padding: 0.5rem 0; 
-    margin-bottom: 0; 
-    background: transparent; 
-    color: #fff;
-    border: none; 
-    border-radius: 0; 
+  width: 100%;
+  padding: 0.5rem 0;
+  margin-bottom: 0;
+  background: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 0;
 }
 
 /* -------------- Radio Buttons --------------*/
 .radio-group {
   margin-bottom: 1.5rem;
+  /* margin-right: 8px; */
   padding: 1rem;
   background: var(--bg);
   border-radius: 8px;
@@ -200,6 +254,14 @@ input[type="radio"] {
   width: 18px;
   height: 18px;
   accent-color: #555;
+}
+input[type="checkbox"] {
+  margin-right: 0.75rem;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  accent-color: #555;
+  margin-bottom: 0.75rem;
 }
 
 /* --------------- Submit Button -------------------- */
@@ -228,6 +290,12 @@ button[type="submit"]:hover {
 button[type="submit"]:active {
   transform: translateY(0);
 }
+/* --------------- ข้อมูลผู้ลงทะเบียน ---------------- */
+.view-button {
+    color: #ffffff96; 
+}
+
+
 
 /* --------------- Responsive Design ---------------- */
 @media (max-width: 768px) {
@@ -264,24 +332,70 @@ button[type="submit"]:active {
   }
 }
 
+@media (max-width:900px) {
+  .logo {
+    font-size: 22px;
+  }
+
+  .menu-toggle {
+    display: block !important;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #1a1d1f;
+    border-top: 1px solid #333;
+    padding: 20px 0;
+
+    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .nav a {
+    padding: 12px 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+  }
+
+  .nav.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
 
 
 /* -------------------- css error massage --------------------- */
 
 .error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 2px;
-    margin-bottom: 10px;
+  color: red;
+  font-size: 14px;
+  margin-top: 2px;
+  margin-bottom: 10px;
 }
 
 /* -------------------- css sucess massage --------------------- */
 .success-message {
-    color: green;
-    font-weight: bold;
-    margin-top: 15px;
+  color: green;
+  font-weight: bold;
+  margin-top: 15px;
 }
-
-
-
-
