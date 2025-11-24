@@ -1,4 +1,3 @@
-// Feedback.js (ครบทุกฟีเจอร์ + แก้บั๊ก link สี)
 (function () {
   const STORAGE_KEY = "feedback_list_v1";
   const statusEl = document.getElementById("feedbackStatus");
@@ -16,7 +15,8 @@
   // โหลดข้อมูลเก่าจาก JSON/server/localStorage
   async function loadExistingList() {
     try {
-      const resp = await fetch("http://localhost/CS100/php/Feedback.json", { cache: "no-store" });
+      // ใช้ relative path แทน localhost
+      const resp = await fetch("php/Feedback.json", { cache: "no-store" });
       if (resp.ok) {
         const data = await resp.json();
         if (Array.isArray(data)) return data.slice();
@@ -32,10 +32,10 @@
     return [];
   }
 
-  // ส่งข้อมูลรวมไปเก็บในไฟล์ PHP
+  // ส่งข้อมูลไปเก็บใน PHP
   async function sendToServerSilent(mergedList) {
     try {
-      const resp = await fetch("http://localhost/CS100/php/save-feedback.php", {
+      const resp = await fetch("php/save-feedback.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(mergedList)
@@ -49,13 +49,16 @@
       console.error("Server save failed:", e);
     }
   }
-   const menuToggle = document.getElementById('menuToggle');
-    const nav = document.querySelector('.nav');
 
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('is-open');
-        menuToggle.classList.toggle('is-active');
-    });
+  // เมนู toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const nav = document.querySelector('.nav');
+
+  menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-active');
+  });
+
   const form = document.getElementById("feedbackForm");
 
   // เมื่อ submit แบบฟอร์ม
@@ -72,7 +75,6 @@
     const satisfaction = document.querySelector('input[name="satisfaction"]:checked')?.value || "";
     const comment = document.getElementById("comment").value.trim();
 
-    // ตรวจอีเมล
     if (!email.endsWith("@dome.tu.ac.th")) {
       showTemporary("⚠️ กรุณาใช้อีเมล @dome.tu.ac.th เท่านั้น");
       return;
@@ -112,16 +114,5 @@
     showTemporary("✅ ขอบคุณสำหรับความคิดเห็นของคุณ!", 3000);
     form.reset();
   });
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.getElementById("menuToggle");
-    const nav = document.querySelector(".nav");
-
-    menuBtn.addEventListener("click", () => {
-        // toggle class
-        menuBtn.classList.toggle("is-active");
-        nav.classList.toggle("is-open");
-    });
-});
-
 
 })();
