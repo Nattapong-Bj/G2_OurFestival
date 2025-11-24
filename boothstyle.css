@@ -6,13 +6,22 @@
 }
 
 body {
-    background-color: rgb(28, 28, 28);
-    color: #000;
+    /* *** 1. กำหนดรูปภาพพื้นหลังใหม่ *** */
+    background-image: url('./image/wat.jpg'); 
+    background-size: cover;          /* ทำให้รูปภาพคลุมพื้นที่ทั้งหมดของหน้าจอ */
+    background-repeat: no-repeat;    /* ไม่ให้รูปภาพซ้ำ */
+    background-attachment: fixed;    /* ตรึงรูปภาพพื้นหลังไว้กับหน้าจอเมื่อเลื่อน */
+    
+    background-color: #ffffff;          /* กำหนดสีสำรอง (Dark Grey) ในกรณีที่โหลดภาพไม่ได้ */
+    
+    /* *** 2. เปลี่ยนสีตัวอักษรหลักเป็นสีขาว (เพื่อให้อ่านได้บนรูปภาพพื้นหลังสีเข้ม) *** */
+    color: #000000; 
+    
+    /* คุณสมบัติอื่นๆ คงเดิม */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-
 header {
     background-color: #000;
     color: #fff;

@@ -10,7 +10,15 @@
 }
 
 body {
-  background-color: rgb(28, 28, 28);
+  /* ลบ background-color: rgb(28, 28, 28); ออก */
+  
+  /* เพิ่ม background image */
+  background-image: url('.//image/wat.jpg'); 
+  background-size: cover;          /* ทำให้รูปภาพคลุมพื้นที่ทั้งหมด (ถ้าภาพมีขนาดใหญ่พอ) */
+  background-repeat: no-repeat;    /* ไม่ให้รูปภาพซ้ำ */
+  background-attachment: fixed;    /* ตรึงรูปภาพพื้นหลังเมื่อเลื่อนหน้าจอ */
+  
+  background-color: #333; /* ตั้งค่าสีสำรอง ในกรณีโหลดรูปภาพไม่ได้ */
   color: #111;
   min-height: 100vh;
   display: flex;
