@@ -40,10 +40,10 @@ if (!is_array($registrations)) $registrations = [];
             </button>
 
             <nav class="nav" aria-label="Primary">
-                <a href="index.html">Homepage</a>
-                <a href="Directory.html">Directory</a>
-                <a href="registration.html">Register</a>
-                <a href="feedback.html">Feedback</a>
+                <a href="../index.html">Homepage</a>
+                <a href="../Directory.html">Directory</a>
+                <a href="../registration.html">Register</a>
+                <a href="../feedback.html">Feedback</a>
             </nav>
         </div>
     </header>
