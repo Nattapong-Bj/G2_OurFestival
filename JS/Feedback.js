@@ -112,5 +112,16 @@
     showTemporary("✅ ขอบคุณสำหรับความคิดเห็นของคุณ!", 3000);
     form.reset();
   });
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menuToggle");
+    const nav = document.querySelector(".nav");
+
+    menuBtn.addEventListener("click", () => {
+        // toggle class
+        menuBtn.classList.toggle("is-active");
+        nav.classList.toggle("is-open");
+    });
+});
+
 
 })();
