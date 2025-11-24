@@ -208,22 +208,22 @@ body {
 
 .gallery-item.item-1 {
   grid-area: top;
-  background-image: url("resources/picture2.jpg");
+  background-image: url("../resources/picture2.jpg");
 }
 
 .gallery-item.item-2 {
   grid-area: left;
-  background-image: url("resources/picture5.jpg");
+  background-image: url("../resources/picture5.jpg");
 }
 
 .gallery-item.item-3 {
   grid-area: rightTop;
-  background-image: url("resources/picture3.jpg");
+  background-image: url("../resources/picture3.jpg");
 }
 
 .gallery-item.item-4 {
   grid-area: rightBottom;
-  background-image: url("resources/picture4.jpg");
+  background-image: url("../resources/picture4.jpg");
 }
 
 .team-section {

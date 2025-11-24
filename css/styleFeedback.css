@@ -52,6 +52,18 @@ body {
   color: #fff;
 }
 
+.logo h4 {
+  background: linear-gradient(to right,
+      #9f9f9f 0%,
+      white 10%,
+      #868686 20%);
+  background-size: 300px 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shift 4s linear infinite;
+}
+
 .nav {
   display: flex;
   gap: 22px;
@@ -85,12 +97,7 @@ h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
-  background: linear-gradient(
-    to right,
-    #9f9f9f 0%,
-    white 10%,
-    #868686 20%
-  );
+  background: linear-gradient(to right, #9f9f9f 0%, white 10%, #868686 20%);
   background-size: 300px 100%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -99,7 +106,7 @@ h2 {
 }
 
 @keyframes shift {
-  0%   { background-position: -150px 0; }
+  0% { background-position: -150px 0; }
   100% { background-position: 300px 0; }
 }
 
@@ -227,43 +234,150 @@ button[type="submit"]:active {
   border-top: 1px solid #333;
 }
 
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .site-footer p {
   margin: 0;
   font-size: 0.9rem;
 }
 
-/* Responsive Design */
+/* JSON Panel */
+.json-panel {
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: linear-gradient(180deg, #121212, #151515);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+}
+
+.json-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.json-controls button {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#jsonDump {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: auto;
+  max-height: 420px;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: #0b0b0b;
+  border: 1px solid rgba(255,255,255,0.03);
+  color: #cfe7ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  font-size: 0.92rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .logo {
-    font-size: 22px;
-  }
-
-  .nav {
-    gap: 12px;
-    font-size: 0.9rem;
-  }
-
-  main {
-    padding: 2rem 1rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  #feedbackForm {
-    padding: 1.5rem;
-  }
+  .logo { font-size: 22px; }
+  .nav { gap: 12px; font-size: 0.9rem; }
+  main { padding: 2rem 1rem; }
+  h2 { font-size: 1.5rem; margin-bottom: 2rem; }
+  #feedbackForm { padding: 1.5rem; }
 }
 
 @media (max-width: 480px) {
+  .nav { display: none; }
+  h2 { font-size: 1.25rem; }
+  #feedbackStatus {
+    transition: opacity 180ms ease;
+    opacity: 0;
+  }
+  #feedbackStatus.show { opacity: 1; }
+}
+
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 50;
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.is-active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.is-active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width:900px) {
+  .menu-toggle { display: block !important; }
+
   .nav {
     display: none;
+    position: absolute;
+    top: 68px;
+    right: 20px;
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 12px 16px;
+    min-width: 160px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    z-index: 50;
   }
 
-  h2 {
-    font-size: 1.25rem;
-  }
+  .nav.is-open { display: block; }
   
 }
+/* Ensure all <a> don't use browser-default blue */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Your link style (force it if something overrides) */
+.view-link {
+  color: #ffffff96 !important;      /* same as you used */
+  text-decoration: underline !important;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* visited/hover/focus states to keep consistent */
+.view-link:visited { color: #ffffff96 !important; }
+.view-link:hover,
+.view-link:focus {
+  color: #ffffff !important;
+  text-shadow: 0 0 6px rgba(255,255,255,0.35) !important;
+}
+

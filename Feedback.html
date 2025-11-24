@@ -1,3 +1,4 @@
+<!-- ใช้ไฟล์ Feedback.html เวอร์ชันนี้ -->
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -8,32 +9,42 @@
   <link rel="stylesheet" href="css/styleFeedback.css">
 </head>
 <body>
-  <!-- Header with Navigation -->
-  <header class="site-header">
-    <div class="container">
-      <div class="brand">
-        <div class="logo">Festival</div>
-      </div>
-      <nav class="nav" aria-label="Primary">
-        <a href="index.html">Homepage</a>
-        <a href="Directory.html">Directory</a>
-        <a href="registration.html">Register</a>
-        <a href="Feedback.html" aria-current="page">Feedback</a>
-      </nav>
+<header class="site-header">
+  <div class="container">
+    <div class="brand">
+      <div class="logo"><h4>Festival of Memories</h4></div>
     </div>
-    <div class="row">
+
+    <!-- ปุ่ม 3 ขีด ถูกต้อง -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Menu Toggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- เมนู -->
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Homepage</a>
+      <a href="Directory.html">Directory</a>
+      <a href="registration.html">Register</a>
+      <a href="Feedback.html" aria-current="page">Feedback</a>
+    </nav>
+  </div>
+
+  <div class="row">
     <div class="col-12">
       <div id="feedbackStatus"></div>
     </div>
   </div>
-  </header>
+</header>
+
 
   <!-- Main Content -->
   <main>
-    <h2>แบบประเมินความพึงพอใจงาน Our Festival</h2>
+    <h2>แบบประเมินความพึงพอใจงาน</h2>
 
     <form id="feedbackForm">
-      <!-- ข้อมูลนักศึกษา -->
+      <!-- ฟิลด์ต่าง ๆ เหมือนเดิม (ไม่ต้องเปลี่ยน) -->
       <label for="fname">ชื่อจริง:</label>
       <input type="text" id="fname" name="fname" placeholder="กรอกชื่อจริง" required>
 
@@ -55,7 +66,6 @@
       <label for="email">อีเมลนักศึกษา:</label>
       <input type="email" id="email" name="email" placeholder="เช่น firstname.lastname@dome.tu.ac.th" required>
 
-      <!-- ระดับความพึงพอใจ -->
       <label style="margin-top: 1rem;">ระดับความพึงพอใจต่อกิจกรรมโดยรวม:</label>
       <div class="radio-group">
         <label><input type="radio" name="satisfaction" value="5" required> ดีมาก</label>
@@ -65,22 +75,27 @@
         <label><input type="radio" name="satisfaction" value="1"> แย่</label>
       </div>
 
-      <!-- ความคิดเห็นเพิ่มเติม -->
       <label for="comment">ความคิดเห็นเพิ่มเติม:</label>
       <textarea id="comment" name="comment" rows="5" placeholder="พิมพ์ความคิดเห็นของคุณที่นี่..."></textarea>
+      <button type="submit">ส่งแบบฟอร์ม</button>
+
+      <!-- สำคัญ: เปลี่ยนลิงก์ให้ชี้ไปที่ PHP ของเพื่อน -->
+      <div class="view-link-wrap">
+        <a class="view-link" href="php/showFeedback.php">ดูข้อมูลผู้ลงทะเบียน</a>
+      </div>
       <!-- ส่งแบบฟอร์ม -->
-        <button type="submit">ส่งแบบฟอร์ม</button>
         <div id="success" class="success-message"></div> <!-- แสดงข้อความ success เมื่อส่งฟอร์มสำเร็จ -->
     </form>
   </main>
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container">
+    <div class="footer-container">
       <p>&copy; 2025 Festival of Memories | Designed by G2 Team</p>
     </div>
   </footer>
 
+  <!-- JS เดิมของคุณ (แก้ให้ fetch เป็น relative path ลงด้านล่าง) -->
   <script src="JS/Feedback.js"></script>
 </body>
 </html>
